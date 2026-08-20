@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mis XV — Daniela Fernanda</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         BARRA DE PROGRESO
+    ========================================= -->
+    <div
+        class="barra-progreso"
+        aria-hidden="true"
+    >
+        <div
+            class="barra-progreso__relleno"
+            id="barraProgreso"
+        ></div>
+    </div>
+
+
+    <!-- =========================================
+         CONTROL FLOTANTE DE MÚSICA
+    ========================================= -->
+    <button
+        class="control-musica"
+        id="controlMusica"
+        type="button"
+        aria-label="Reproducir música"
+        aria-pressed="false"
+    >
+        <span class="control-musica__halo"></span>
+
+        <span
+            class="control-musica__icono"
+            id="iconoMusica"
+        >
+            ▶
+        </span>
+
+        <span
+            class="control-musica__ondas"
+            aria-hidden="true"
+        >
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+    </button>
+
+
+    <!-- =========================================
+         FONDO CONTINUO:
+         CONTIENE LAS SECCIONES 1, 2 Y 3
+    ========================================= -->
+    <div id="fondoTotal">
+
+
+        <!-- =================================================
+             SECCIÓN 1 — PORTADA
+        ================================================== -->
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+            <div class="hero__capa"></div>
+
+        <div
+            class="particulas"
+            id="particulasHero"
+            aria-hidden="true"
+        ></div>
+
+        <div class="hero__contenido">
+
+            <p class="hero__frase">
+                ÉRASE UNA VEZ...
+            </p>
+
+            <h1 class="hero__titulo">
+             Mis <span class="hero__xv">XV</span>
+             </h1>
+
+             
+            <!-- Reproductor -->
+            <div class="reproductor">
+                <p class="reproductor__invitacion">
+    ✦ Toca para escuchar la melodía encantada ✦
+
+</p>
+
+                <div class="reproductor__controles">
+
+                    <span
+                        class="reproductor__adorno"
+                        aria-hidden="true"
+                    >
+                        ✦
+                    </span>
+
+                    <button
+                        class="reproductor__boton reproductor__boton--pequeno"
+                        id="botonRetroceder"
+                        type="button"
+                        aria-label="Retroceder diez segundos"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 5h2v14H6V5zm12 1v12l-9-6 9-6z"/>
+                        </svg>
+                    </button>
+
+                    <button
+                        class="reproductor__boton reproductor__boton--principal"
+                        id="botonMusica"
+                        type="button"
+                        aria-label="Reproducir música"
+                    >
+                        <span
+                            class="reproductor__anillo"
+                            aria-hidden="true"
+                        ></span>
+
+                        <svg
+                            class="reproductor__icono"
+                            id="iconoReproducir"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+
+                        <svg
+                            class="reproductor__icono reproductor__icono--pausa"
+                            id="iconoPausa"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M6 5h4v14H6zm8 0h4v14h-4z"/>
+                        </svg>
+                    </button>
+
+                    <button
+                        class="reproductor__boton reproductor__boton--pequeno"
+                        id="botonAdelantar"
+                        type="button"
+                        aria-label="Adelantar diez segundos"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M16 5h2v14h-2V5zM6 6v12l9-6-9-6z"/>
+                        </svg>
+                    </button>
+
+                    <span
+                        class="reproductor__adorno"
+                        aria-hidden="true"
+                    >
+                        ✦
+                    </span>
+
+                </div>
+
+                <div class="reproductor__linea"></div>
+
+                <p class="reproductor__cancion">
+                    FIFTEEN · TAYLOR SWIFT
+                </p>
+
+            </div>
+
+        </div>
+        <a
+    class="indicador-deslizar"
+    href="#presentacion"
+    style="display: none;"
+>
+         <span class="indicador-deslizar__destello">✦</span>
+          <span>DESLIZA PARA DESCUBRIR LA MAGIA</span>
+         <span class="indicador-deslizar__flecha">⌄</span>
+        </a>
+        <audio id="audioFifteen" preload="metadata" loop>
+            <source
+                src="musica/fifteen.mp3"
+                type="audio/mpeg"
+            >
+        </audio>
+
+    </section>
+  
+
+
+  <!-- =================================================
+         SECCIÓN 2 — FOTO Y NOMBRE
+    ================================================== -->
+    <section class="presentacion" id="presentacion">
+
+        <div class="presentacion__capa"></div>
+
+        <div
+            class="particulas"
+            id="particulasPresentacion"
+            aria-hidden="true"
+        ></div>
+
+        <div class="presentacion__contenido">
+
+            <!-- Foto -->
+            <div class="presentacion__foto-contenedor">
+
+                <span
+                    class="presentacion__halo-foto"
+                    aria-hidden="true"
+                ></span>
+
+                <span
+                    class="destello destello--foto-uno"
+                    aria-hidden="true"
+                ></span>
+
+                <span
+                    class="destello destello--foto-dos"
+                    aria-hidden="true"
+                ></span>
+
+                <img
+                    class="presentacion__foto"
+                    src="imagenes/seccion-2/foto-daniela-seccion-2.png"
+                    alt="Fotografía de Daniela Fernanda"
+                    decoding="async"
+                >
+
+            </div>
+
+            <!-- Nombre -->
+            <h2 class="presentacion__nombre">
+                <span>Daniela</span>
+                <span>Fernanda</span>
+            </h2>
+
+            <!-- =================================================
+     DOS PERGAMINOS — PADRES Y PADRINOS
+================================================== -->
+<div class="pergaminos">
+
+    <!-- PERGAMINO DE PADRES -->
+    <div class="pergamino pergamino--separado pergamino--padres">
+
+        <span
+            class="pergamino__halo"
+            aria-hidden="true"
+        ></span>
+
+        <span
+            class="pergamino__brillo-borde"
+            aria-hidden="true"
+        ></span>
+
+        <span
+            class="destello destello--pergamino-uno"
+            aria-hidden="true"
+        ></span>
+
+        <img
+            class="pergamino__imagen"
+            src="imagenes/seccion-3/pergamino-1.png"
+            alt=""
+            decoding="async"
+            aria-hidden="true"
+        >
+
+        <div class="pergamino__texto pergamino__texto--separado">
+
+            <div
+                class="pergamino__corona"
+                aria-hidden="true"
+            >
+                ♕
+            </div>
+
+            <div
+                class="pergamino__filigrana"
+                aria-hidden="true"
+            >
+                <span></span>
+                <b>❦</b>
+                <span></span>
+            </div>
+
+            <p class="pergamino__introduccion">
+                Con la bendición de Dios
+                <span>y el amor de quienes han guiado</span>
+                <span>cada paso de mi historia,</span>
+                <span>celebro este día junto a mis padres</span>
+            </p>
+
+            <div class="pergamino__nombres pergamino__nombres--padres">
+                <p>Daniel Huarcaya</p>
+                <p>Amparo Fuentes</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PERGAMINO DE PADRINOS -->
+    <div class="pergamino pergamino--separado pergamino--padrinos">
+
+        <span
+            class="pergamino__halo"
+            aria-hidden="true"
+        ></span>
+
+        <span
+            class="pergamino__brillo-borde"
+            aria-hidden="true"
+        ></span>
+
+        <span
+            class="destello destello--pergamino-dos"
+            aria-hidden="true"
+        ></span>
+
+        <img
+            class="pergamino__imagen"
+            src="imagenes/seccion-3/pergamino-1.png"
+            alt=""
+            decoding="async"
+            aria-hidden="true"
+        >
+
+        <div class="pergamino__texto pergamino__texto--separado pergamino__texto--padrinos">
+
+            <div
+                class="pergamino__corona"
+                aria-hidden="true"
+            >
+                ♕
+            </div>
+
+            <div
+                class="pergamino__filigrana"
+                aria-hidden="true"
+            >
+                <span></span>
+                <b>❦</b>
+                <span></span>
+            </div>
+
+            <p class="pergamino__introduccion pergamino__introduccion--padrinos">
+                Y con el cariño y la compañía
+                <span>de mis padrinos</span>
+            </p>
+
+            <div class="pergamino__nombres pergamino__nombres--padrinos">
+                <p>Jorge Fuilco</p>
+                <p>Gisella Escate</p>
+                <p>Luis Huamani</p>
+                <p>Sandra Huaraca</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+        </div>
+
+            
+    </section>
+   
+
+<!-- =================================================
+     SECCIÓN 3 — FAMILIA
+================================================== -->
+<section class="familia" id="familia">
+    <div
+        class="familia__empalme"
+        aria-hidden="true"
+    ></div>
+
+    <div class="familia__capa"></div>
+
+    <div
+        class="particulas"
+        id="particulasFamilia"
+        aria-hidden="true"
+    ></div>
+
+    <!-- XV AÑOS — centrado sobre el monograma -->
+    <div
+        class="familia__quince"
+        aria-label="XV años"
+    >
+        <span class="familia__quince-numero">XV</span>
+        <span class="familia__quince-texto">AÑOS</span>
+    </div>
+    
+<div
+    class="familia__monograma"
+    aria-hidden="true"
+>
+    DF
+</div>
+
+    <div class="familia__contenido">
+
+        <div class="familia__mensaje">
+
+            <span
+                class="familia__detalle familia__detalle--superior"
+                aria-hidden="true"
+            ></span>
+
+            <p class="familia__mensaje-principal">
+                Hoy comienza un nuevo capítulo...
+            </p>
+
+            <p class="familia__mensaje-secundario">
+                y quiero compartirlo contigo.
+            </p>
+
+            <span
+                class="familia__detalle familia__detalle--inferior"
+                aria-hidden="true"
+            ></span>
+
+        </div>
+
+    </div>
+
+</section>
+</div>
+<!-- =================================================
+     SECCIÓN 4 — CUENTA REGRESIVA
+================================================== -->
+<section class="cuenta-regresiva" id="cuenta-regresiva">
+
+    <div class="cuenta-regresiva__capa"></div>
+
+    <div
+        class="particulas"
+        id="particulasCountdown"
+        aria-hidden="true"
+    ></div>
+
+    <div class="cuenta-regresiva__contenido">
+
+        <div class="cuenta-regresiva__rosa-contenedor">
+            <span
+                class="cuenta-regresiva__halo"
+                aria-hidden="true"
+            ></span>
+
+            <img
+                class="cuenta-regresiva__rosa"
+                src="imagenes/seccion-3/rosa-frasco.png"
+                alt="Rosa encantada"
+                decoding="async"
+            >
+        </div>
+
+        <p class="cuenta-regresiva__frase">
+            La cuenta regresiva para una noche
+            <span>llena de magia ha comenzado...</span>
+        </p>
+
+        <div class="contador" aria-label="Cuenta regresiva para los quince años">
+
+            <div class="contador__item">
+                <span class="contador__valor" id="dias">00</span>
+                <span class="contador__etiqueta">DÍAS</span>
+            </div>
+
+            <span class="contador__puntos" aria-hidden="true">:</span>
+
+            <div class="contador__item">
+                <span class="contador__valor" id="horas">00</span>
+                <span class="contador__etiqueta">HORAS</span>
+            </div>
+
+            <span class="contador__puntos" aria-hidden="true">:</span>
+
+            <div class="contador__item">
+                <span class="contador__valor" id="minutos">00</span>
+                <span class="contador__etiqueta">MINUTOS</span>
+            </div>
+
+            <span class="contador__puntos" aria-hidden="true">:</span>
+
+            <div class="contador__item">
+                <span class="contador__valor" id="segundos">00</span>
+                <span class="contador__etiqueta">SEGUNDOS</span>
+            </div>
+>
+</section>
+
+<!-- =================================================
+     SECCIÓN 5 — RECUERDOS Y CALENDARIO
+================================================== -->
+<section class="recuerdos-fecha" id="recuerdos-fecha">
+
+    <div
+        class="recuerdos-fecha__luz"
+        aria-hidden="true"
+    ></div>
+
+    <div class="recuerdos-fecha__contenido">
+
+        <!-- ==========================================
+             COMPOSICIÓN DE FOTOS
+        =========================================== -->
+        <div class="recuerdos-fecha__fotos">
+
+            <!-- Foto vertical -->
+            <figure class="foto-recuerdo foto-recuerdo--principal">
+
+                <span
+                    class="foto-recuerdo__luz"
+                    aria-hidden="true"
+                ></span>
+
+                <img
+                    src="imagenes/seccion-4/imagen-calendario-graduacion.png"
+                    alt="Daniela cuando era niña"
+                    decoding="async"
+                >
+
+            </figure>
+
+            <!-- Foto familiar con marco decorativo -->
+            <figure class="foto-recuerdo foto-recuerdo--familia">
+
+                <span
+                    class="foto-recuerdo__halo"
+                    aria-hidden="true"
+                ></span>
+
+                <img
+                    src="imagenes/seccion-4/foto-familia.png"
+                    alt="Fotografía familiar de Daniela"
+                    decoding="async"
+                >
+
+            </figure>
+
+        </div>
+
+
+        <!-- ==========================================
+             CALENDARIO
+        =========================================== -->
+        <div class="calendario-evento">
+
+            <header class="calendario-evento__encabezado">
+
+             <p class="calendario-evento__save">
+              Save the Date
+              </p>
+
+              <p class="calendario-evento__fecha">
+                  11 · 12 DE SEPTIEMBRE · 2026
+                   </p>
+
+                     <div
+        class="calendario-evento__adorno"
+        aria-hidden="true"
+    >
+        <span></span>
+        <i></i>
+        <span></span>
+    </div>
+
+</header>
+
+            <div class="calendario-evento__imagen">
+
+                <span
+                    class="calendario-evento__resplandor"
+                    aria-hidden="true"
+                ></span>
+
+                <img
+                    src="imagenes/seccion-4/calendario.png"
+                    alt="Calendario de septiembre de 2026"
+                    decoding="async"
+                >
+
+            </div>
+
+            <div class="calendario-evento__leyenda">
+
+                <div class="calendario-evento__dato">
+
+                    <span
+                        class="calendario-evento__simbolo calendario-evento__simbolo--circulo"
+                        aria-hidden="true"
+                    ></span>
+
+                    <p>
+                        Mi cumpleaños
+                        <span>11 de septiembre</span>
+                    </p>
+
+                </div>
+
+                <div class="calendario-evento__dato">
+
+                    <span
+                        class="calendario-evento__simbolo calendario-evento__simbolo--corazon"
+                        aria-hidden="true"
+                    ></span>
+
+                    <p>
+                        Mi fiesta de XV
+                        <span>12 de septiembre</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================
+     SECCIÓN 5: HORA Y LUGAR
+========================================= -->
+
+<section class="seccion-5" id="hora-lugar">
+
+    <div class="s5-contenedor">
+
+        <img
+            src="imagenes/seccion-5/marco-biblioteca.png"
+            alt="Marco decorativo de hora y lugar"
+            decoding="async"
+            class="s5-marco"
+        >
+
+        <div class="s5-contenido">
+
+            <h2 class="s5-titulo">
+                Hora y lugar
+            </h2>
+
+            <p class="s5-hora">
+                7:00 p. m.
+            </p>
+
+            <div class="s5-info">
+
+                <p class="s5-etiqueta">
+                    Local de eventos
+                </p>
+
+                <p class="s5-lugar">
+                    Los Ficus
+                </p>
+
+                <p class="s5-direccion">
+                    Av. Cutervo, Ica Cercado
+                </p>
+
+            </div>
+
+            <a
+                href="https://maps.app.goo.gl/8AHg38vXLyyVsF33A"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="s5-boton-mapa"
+                aria-label="Ver la ubicación de Los Ficus en Google Maps"
+            >
+                <span class="s5-boton-texto">
+                    Ver ubicación
+                </span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================
+     SECCIÓN 7: FRASE
+========================================= -->
+
+<section class="seccion-7" id="frase">
+
+    <div class="s7-capa"></div>
+
+    <div class="s7-contenido">
+
+        <img
+            src="imagenes/generales/rosa-echada.png"
+            alt="Rosa decorativa"
+            loading="lazy"
+            decoding="async"
+            class="s7-rosa"
+        >
+
+        <p class="s7-frase">
+         “Desde el primer instante en que llegó a nuestras vidas,
+           supimos que sería una historia llena de amor…
+           hoy, 15 años después, celebramos
+          <span>la dulzura de su esencia</span>,
+          sus sueños y la alegría que regala a todos quienes la rodean.”
+            </p>
+
+    </div>
+
+</section>
+<!-- =========================================
+     SECCIÓN 8: CARRUSEL DE RECUERDOS
+========================================= -->
+
+<section class="seccion-8" id="recuerdos">
+
+    <div class="s8-capa"></div>
+
+    <div class="s8-contenido">
+
+        <div class="s8-encabezado">
+            <span class="s8-linea"></span>
+
+            <h2 class="s8-titulo">
+                Nuestros recuerdos
+            </h2>
+
+            <span class="s8-linea"></span>
+        </div>
+
+        <p class="s8-subtitulo">
+            Momentos que siempre vivirán en mi corazón
+        </p>
+
+        <div class="s8-carrusel">
+
+            <button
+                class="s8-flecha s8-flecha-anterior"
+                id="s8Anterior"
+                type="button"
+                aria-label="Ver fotografía anterior"
+            >
+                ‹
+            </button>
+
+            <div class="s8-escenario">
+
+                <article class="s8-tarjeta" data-indice="0">
+                    <div class="s8-marco-foto">
+                        <img
+                            src="imagenes/carrusel/blancanieves.png"
+                            alt="Daniela en uno de sus recuerdos"
+                            loading="lazy"
+                            decoding="async"
+                            class="s8-foto"
+                        >
+                    </div>
+                </article>
+
+                <article class="s8-tarjeta" data-indice="1">
+                    <div class="s8-marco-foto">
+                        <img
+                            src="imagenes/carrusel/leo.png"
+                            alt="Daniela junto a Leo"
+                            loading="lazy"
+                            decoding="async"
+                            class="s8-foto"
+                        >
+                    </div>
+                </article>
+
+                <article class="s8-tarjeta" data-indice="2">
+                    <div class="s8-marco-foto">
+                        <img
+                            src="imagenes/carrusel/sofi.jpg"
+                            alt="Daniela junto a Sofi"
+                            loading="lazy"
+                            decoding="async"
+                            class="s8-foto"
+                        >
+                    </div>
+                </article>
+
+                <article class="s8-tarjeta" data-indice="3">
+                    <div class="s8-marco-foto">
+                        <img
+                            src="imagenes/carrusel/tobogan.png"
+                            alt="Daniela en uno de sus recuerdos"
+                            loading="lazy"
+                            decoding="async"
+                            class="s8-foto"
+                        >
+                    </div>
+                </article>
+                <article class="s8-tarjeta" data-indice="4">
+
+                   <div class="s8-marco-foto">
+
+                   <img
+                       src="imagenes/carrusel/nosotros.jpg"
+                       alt="Daniela en uno de sus recuerdos"
+                       loading="lazy"
+                       decoding="async"
+                       class="s8-foto"
+        >
+
+    </div>
+
+</article>
+
+            </div>
+
+            <button
+                class="s8-flecha s8-flecha-siguiente"
+                id="s8Siguiente"
+                type="button"
+                aria-label="Ver fotografía siguiente"
+            >
+                ›
+            </button>
+
+        </div>
+
+        <div
+            class="s8-indicadores"
+            id="s8Indicadores"
+            aria-label="Seleccionar fotografía"
+        ></div>
+
+    </div>
+
+</section>
+<!-- =========================================
+     SECCIÓN 9: DETALLES DE LA CELEBRACIÓN
+========================================= -->
+
+<section class="seccion-9" id="detalles-celebracion">
+
+    <div class="s9-capa"></div>
+
+    <div class="s9-contenedor">
+
+        <!-- MESA DE REGALOS -->
+        <article class="s9-pergamino s9-pergamino-regalos">
+
+            <img
+                src="imagenes/seccion-8/pergamino-regalos.png"
+                alt="Pergamino decorativo de mesa de regalos"
+                loading="lazy"
+                decoding="async"
+                class="s9-imagen-pergamino"
+            >
+
+            <div class="s9-texto s9-texto-regalos">
+
+                <h2 class="s9-titulo">
+                    Mesa de regalos
+                </h2>
+
+                <p class="s9-parrafo">
+                    Tu presencia es lo más valioso para mí,
+                    pero si deseas hacerme un obsequio,
+                    con mucho cariño lo recibiré.
+                </p>
+
+            </div>
+
+        </article>
+
+        <!-- RECOMENDACIONES -->
+        <article class="s9-pergamino s9-pergamino-recomendaciones">
+
+            <img
+                src="imagenes/seccion-8/pergamino-recomendaciones.png"
+                alt="Pergamino decorativo de recomendaciones"
+                loading="lazy"
+                decoding="async"
+                class="s9-imagen-pergamino"
+            >
+
+            <div class="s9-texto s9-texto-recomendaciones">
+
+                <h2 class="s9-titulo">
+                    Recomendaciones
+                </h2>
+
+                <ul class="s9-lista">
+                    <li>Lleva tu celular cargado.</li>
+                    <li>Llega puntual.</li>
+                    <li>Considera transporte seguro.</li>
+                    <li>Disfruta y captura momentos especiales.</li>
+                </ul>
+
+            </div>
+
+        </article>
+
+        <!-- CÓDIGO DE VESTIMENTA -->
+        <article class="s9-pergamino s9-pergamino-vestimenta">
+
+            <img
+                src="imagenes/seccion-8/pergamino-codigo-vestimenta.png"
+                alt="Pergamino decorativo de código de vestimenta"
+                loading="lazy"
+                decoding="async"
+                class="s9-imagen-pergamino"
+            >
+
+            <div class="s9-texto s9-texto-vestimenta">
+
+                <h2 class="s9-titulo s9-titulo-vestimenta">
+                    Código de vestimenta
+                </h2>
+
+                <p class="s9-formal">
+                    Formal
+                </p>
+
+                <p class="s9-parrafo s9-parrafo-vestimenta">
+                    Reservamos el color champagne,
+                    dorado y tonos similares
+                    exclusivamente para la quinceañera.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+<!-- =========================================
+     SECCIÓN 10: CONFIRMAR ASISTENCIA
+========================================= -->
+
+<section class="seccion-10" id="confirmar-asistencia">
+
+    <div class="s10-capa"></div>
+
+    <div class="s10-contenido">
+
+        <img
+            src="imagenes/generales/rosa-echada.png"
+            alt="Rosa decorativa"
+             loading="lazy"
+              decoding="async"
+             class="s10-rosa"
+        >
+
+        <h2 class="s10-titulo">
+            Confirmar asistencia
+        </h2>
+
+        <p class="s10-indicacion">
+            Por favor, confirma tu asistencia
+        </p>
+
+        <a
+            href="https://wa.link/8vxppl"
+            class="s10-boton"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Confirmar asistencia"
+        >
+            <span class="s10-boton-texto">
+                Confirmar aquí
+            </span>
+        </a>
+
+        <p class="s10-frase">
+            Tu presencia hará de este día un<br>
+            recuerdo aún más especial.
+        </p>
+
+    </div>
+
+</section>
+<!-- =========================================
+     CIERRE FINAL
+========================================= -->
+<section class="seccion-cierre" id="despedida">
+
+    <div class="cierre-capa"></div>
+
+    <div class="cierre-contenido revelar">
+
+        <img
+            src="imagenes/seccion-3/rosa-frasco.png"
+            alt=""
+             loading="lazy"
+    decoding="async"
+            class="cierre-rosa"
+        >
+
+        <p class="cierre-frase">
+            Te espero para celebrar juntos
+            este capítulo inolvidable.
+        </p>
+
+        <p class="cierre-despedida">
+            Con cariño,
+        </p>
+
+        <h2 class="cierre-nombre">
+            Daniela Fernanda
+        </h2>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     CRÉDITO
+========================================= -->
+<footer class="credito-final">
+
+    <p>
+        Creado con amor por
+        <span>Daniela Huarcaya Fuentes</span>
+    </p>
+
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
