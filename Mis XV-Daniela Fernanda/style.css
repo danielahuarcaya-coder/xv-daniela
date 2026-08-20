@@ -1,0 +1,7695 @@
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+    --champagne-claro: #fff3bc;
+    --champagne-medio: #e8c673;
+    --champagne-profundo: #b98736;
+
+    --dorado-texto: #f1d17c;
+    --dorado-boton: #d7a94f;
+    --dorado-oscuro: #644013;
+
+    --marron-fondo: #1c0b03;
+
+    --tinta-pergamino: #352217;
+    --tinta-nombres: #725035;
+}
+
+
+/* =====================================================
+   REINICIO GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background-color: var(--marron-fondo);
+}
+
+
+/* Los adornos nunca bloquean clics */
+
+.particulas,
+.destello,
+.presentacion__halo-foto,
+.pergamino__halo,
+.pergamino__brillo-borde,
+.reproductor__anillo,
+.familia__empalme {
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   SECCIÓN 1 — PORTADA
+===================================================== */
+
+.hero {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 720px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow: hidden;
+
+    background-image:
+        url("imagenes/hero/hero-fondo.png");
+
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+
+/* Iluminación uniforme */
+
+.hero__capa {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        radial-gradient(
+            circle at 50% 24%,
+            rgba(255, 223, 149, 0.06) 0%,
+            transparent 31%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(22, 8, 2, 0.04) 0%,
+            rgba(21, 7, 2, 0.07) 40%,
+            rgba(19, 6, 2, 0.13) 65%,
+            rgba(15, 5, 1, 0.22) 84%,
+            rgba(10, 3, 1, 0.33) 100%
+        );
+}
+
+
+/* =====================================================
+   CONTENIDO DE LA PORTADA
+===================================================== */
+
+.hero__contenido {
+    position: relative;
+    z-index: 4;
+
+    width: 680px;
+    margin-top: 175px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    animation:
+        aparecerPortada 1.2s ease both;
+}
+
+
+/* Érase una vez */
+
+.hero__frase {
+    margin: 0 0 31px;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.7px;
+
+    color: var(--dorado-texto);
+
+    text-shadow:
+        0 0 5px rgba(255, 226, 137, 0.48),
+        0 2px 3px rgba(45, 16, 3, 0.92);
+}
+
+
+/* =====================================================
+   MIS XV — DORADO CHAMPAGNE
+===================================================== */
+
+.hero__titulo {
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+    font-size: 126px;
+    font-weight: 400;
+    line-height: 0.75;
+
+    color: var(--champagne-claro);
+
+    text-shadow:
+        0 1px 0 rgba(255, 251, 218, 0.95),
+        0 0 5px rgba(255, 238, 170, 0.82),
+        0 0 14px rgba(224, 170, 67, 0.62),
+        0 0 27px rgba(172, 111, 29, 0.33),
+        0 4px 5px rgba(45, 14, 2, 0.90);
+
+    animation:
+        brilloTitulo 5.2s ease-in-out infinite;
+}
+.hero__xv {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 0.58em;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: var(--champagne-claro);
+
+    text-shadow:
+        0 1px 0 rgba(255, 251, 218, 0.95),
+        0 0 5px rgba(255, 238, 170, 0.82),
+        0 0 14px rgba(224, 170, 67, 0.62),
+        0 4px 5px rgba(45, 14, 2, 0.90);
+}
+
+/* =====================================================
+   REPRODUCTOR
+===================================================== */
+
+.reproductor {
+    width: 350px;
+    margin-top: 72px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.reproductor__controles {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.reproductor__adorno {
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1;
+
+    color: #e2b860;
+
+    text-shadow:
+        0 0 5px rgba(255, 220, 119, 0.55);
+
+    animation:
+        brilloAdorno 3s ease-in-out infinite;
+}
+
+
+.reproductor__adorno:last-child {
+    animation-delay: 1.5s;
+}
+
+
+.reproductor__boton {
+    position: relative;
+
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    outline: none;
+
+    color: #deb45b;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        filter 180ms ease;
+}
+
+
+.reproductor__boton svg {
+    width: 100%;
+    height: 100%;
+
+    fill: currentColor;
+}
+
+
+.reproductor__boton--pequeno {
+    width: 22px;
+    height: 22px;
+
+    filter:
+        drop-shadow(0 1px 2px rgba(39, 13, 2, 0.85));
+}
+
+
+.reproductor__boton--principal {
+    width: 70px;
+    height: 70px;
+
+    padding: 17px;
+
+    border-radius: 50%;
+
+    color: var(--dorado-oscuro);
+
+    background:
+        linear-gradient(
+            145deg,
+            #e7c36e 0%,
+            var(--dorado-boton) 48%,
+            #bd8731 100%
+        );
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 247, 204, 0.44),
+        0 0 0 1px rgba(255, 235, 171, 0.36),
+        0 0 17px rgba(222, 174, 79, 0.31),
+        0 6px 12px rgba(35, 11, 1, 0.52);
+
+    animation:
+        respirarBoton 3.8s ease-in-out infinite;
+}
+
+
+.reproductor__icono {
+    position: relative;
+    z-index: 2;
+
+    width: 32px !important;
+    height: 32px !important;
+}
+
+
+.reproductor__icono--pausa {
+    display: none;
+}
+
+
+.reproductor__anillo {
+    position: absolute;
+    inset: -8px;
+
+    border:
+        1px solid rgba(255, 227, 145, 0.34);
+
+    border-radius: 50%;
+
+    animation:
+        expandirAnillo 3.8s ease-out infinite;
+}
+
+
+.reproductor__boton:hover {
+    transform: scale(1.08);
+    filter: brightness(1.13);
+}
+
+
+.reproductor__boton:active {
+    transform: scale(0.94);
+}
+
+
+.reproductor__linea {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 17px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(227, 183, 90, 0.18) 6%,
+            rgba(239, 199, 105, 0.94) 50%,
+            rgba(227, 183, 90, 0.18) 94%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 5px rgba(236, 192, 95, 0.36);
+}
+
+
+.reproductor__cancion {
+    margin-top: 16px;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.25px;
+
+    color: #f0cf73;
+
+    text-shadow:
+        0 0 5px rgba(245, 205, 107, 0.45),
+        0 2px 2px rgba(43, 14, 2, 0.96);
+}
+
+
+/* =====================================================
+   SECCIÓN 2 — DANIELA
+===================================================== */
+
+.presentacion {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    height: 940px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow: visible;
+
+    background-image:
+        url("imagenes/seccion-2/fondo-foto-daniela.png");
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+
+/* Luz equilibrada de la sección 2 */
+
+.presentacion__capa {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(255, 220, 143, 0.07) 0%,
+            transparent 32%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(13, 4, 1, 0.28) 0%,
+            rgba(15, 5, 1, 0.18) 15%,
+            rgba(18, 7, 2, 0.09) 38%,
+            rgba(18, 7, 2, 0.08) 67%,
+            rgba(15, 5, 1, 0.15) 84%,
+            rgba(10, 3, 1, 0.28) 100%
+        );
+}
+
+
+.presentacion__contenido {
+    position: relative;
+    z-index: 5;
+
+    width: 760px;
+    margin-top: -190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   FOTO Y MARCO MÁS GRANDES
+===================================================== */
+
+.presentacion__foto-contenedor {
+    position: relative;
+
+    width: 315px;
+    height: 435px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    filter:
+        drop-shadow(0 12px 16px rgba(28, 8, 1, 0.65))
+        drop-shadow(0 0 16px rgba(228, 175, 76, 0.31));
+
+    animation:
+        aparecerElemento 1.1s ease both,
+        flotarFoto 6.4s ease-in-out 1.1s infinite;
+}
+
+
+.presentacion__halo-foto {
+    position: absolute;
+    z-index: -1;
+
+    width: 102%;
+    height: 96%;
+
+    border-radius: 44%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 224, 148, 0.30) 0%,
+            rgba(224, 166, 67, 0.12) 44%,
+            transparent 75%
+        );
+
+    filter: blur(22px);
+
+    animation:
+        pulsoHalo 5s ease-in-out infinite;
+}
+
+
+.presentacion__foto {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =====================================================
+   DANIELA FERNANDA MÁS GRANDE
+===================================================== */
+
+.presentacion__nombre {
+    margin-top: 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: "Great Vibes", cursive;
+    font-size: 94px;
+    font-weight: 400;
+    line-height: 0.74;
+
+    color: var(--champagne-claro);
+
+    text-shadow:
+        0 1px 0 rgba(255, 250, 213, 0.92),
+        0 0 5px rgba(255, 238, 171, 0.80),
+        0 0 14px rgba(224, 169, 67, 0.57),
+        0 4px 5px rgba(43, 13, 2, 0.90);
+
+    animation:
+        aparecerElemento 1.15s 0.18s ease both;
+}
+
+
+.presentacion__nombre span {
+    display: block;
+}
+
+
+.presentacion__nombre span:last-child {
+    margin-top: 14px;
+}
+
+
+/* =====================================================
+   PERGAMINO
+===================================================== */
+
+.pergamino {
+    position: relative;
+    z-index: 8;
+
+    width: 500px;
+    margin-top: 110px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    filter:
+        drop-shadow(0 15px 20px rgba(25, 7, 1, 0.66))
+        drop-shadow(0 0 14px rgba(214, 164, 70, 0.23));
+
+    animation:
+        aparecerElemento 1.2s 0.35s ease both;
+}
+
+
+.pergamino__halo {
+    position: absolute;
+    z-index: -2;
+
+    width: 94%;
+    height: 91%;
+
+    border-radius: 44%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 225, 161, 0.23) 0%,
+            rgba(215, 158, 62, 0.08) 48%,
+            transparent 76%
+        );
+
+    filter: blur(21px);
+
+    animation:
+        pulsoHalo 5.3s ease-in-out infinite;
+}
+
+
+.pergamino__imagen {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Brillo muy delicado */
+
+.pergamino__brillo-borde {
+    position: absolute;
+    z-index: 5;
+
+    top: 10%;
+    left: 10%;
+
+    width: 80%;
+    height: 80%;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255, 230, 157, 0);
+
+    opacity: 0;
+
+    animation:
+        brilloPergamino 7s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   TEXTO DEL PERGAMINO
+===================================================== */
+
+.pergamino__texto {
+    position: absolute;
+    z-index: 6;
+
+    top: 20.5%;
+    left: 50%;
+
+    width: 66%;
+    height: 59%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: var(--tinta-pergamino);
+    text-align: center;
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* Corona */
+
+.pergamino__corona {
+    height: 23px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+    font-size: 20px;
+    line-height: 1;
+
+    color: #9b7138;
+
+    text-shadow:
+        0 1px 0 rgba(255, 245, 205, 0.74);
+}
+
+
+/* Filigranas */
+
+.pergamino__filigrana,
+.pergamino__separador {
+    width: 74%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #93683a;
+}
+
+
+.pergamino__filigrana {
+    margin: 2px 0 10px;
+}
+
+
+.pergamino__filigrana span,
+.pergamino__separador span {
+    flex: 1;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(125, 82, 43, 0.67),
+            transparent
+        );
+}
+
+
+.pergamino__filigrana b {
+    margin: 0 8px;
+
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    color: #9d703b;
+}
+
+
+/* Texto principal: más grueso y legible */
+
+.pergamino__introduccion {
+    margin: 0;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.38;
+    letter-spacing: -0.2px;
+
+    color: #302015;
+
+    text-shadow:
+        0 1px 0 rgba(255, 248, 216, 0.72);
+}
+
+
+.pergamino__introduccion span {
+    display: block;
+}
+
+
+/* Nombres de padres */
+
+.pergamino__nombres {
+    margin-top: 13px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.pergamino__nombres p {
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: var(--tinta-nombres);
+
+    text-shadow:
+        0 1px 0 rgba(255, 247, 214, 0.70),
+        0 0 1px rgba(66, 38, 21, 0.18);
+}
+
+
+/* Separador */
+
+.pergamino__separador {
+    margin: 15px 0 10px;
+}
+
+
+.pergamino__separador b {
+    margin: 0 8px;
+
+    font-family: Georgia, serif;
+    font-size: 9px;
+    font-weight: 400;
+
+    color: #9a7040;
+
+    text-shadow:
+        0 0 4px rgba(177, 124, 55, 0.24);
+}
+
+
+/* Texto de padrinos */
+
+.pergamino__introduccion--padrinos {
+    margin-top: 0;
+
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+
+/* Nombres de padrinos */
+
+.pergamino__nombres--padrinos {
+    margin-top: 10px;
+}
+
+
+.pergamino__nombres--padrinos p {
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: #67452f;
+
+    text-shadow:
+        0 1px 0 rgba(255, 248, 218, 0.75),
+        0 0 1px rgba(61, 34, 20, 0.24);
+}
+
+
+/* =====================================================
+   DESTELLOS
+===================================================== */
+
+.destello {
+    position: absolute;
+    z-index: 10;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff9d2 0%,
+            #f5cb68 30%,
+            rgba(224, 165, 53, 0.20) 62%,
+            transparent 77%
+        );
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255, 225, 135, 0.82));
+
+    animation:
+        destellar 5.4s ease-in-out infinite;
+}
+
+
+.destello::before,
+.destello::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    background:
+        rgba(255, 240, 178, 0.82);
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+.destello::before {
+    width: 24px;
+    height: 1px;
+}
+
+
+.destello::after {
+    width: 1px;
+    height: 24px;
+}
+
+
+.destello--foto-uno {
+    top: 14%;
+    right: 8%;
+}
+
+
+.destello--foto-dos {
+    left: 9%;
+    bottom: 16%;
+
+    animation-delay: 2.6s;
+}
+
+
+.destello--pergamino-uno {
+    top: 14%;
+    left: 10%;
+
+    animation-delay: 0.9s;
+}
+
+
+.destello--pergamino-dos {
+    right: 13%;
+    bottom: 12%;
+
+    animation-delay: 3.2s;
+}
+
+
+/* =====================================================
+   SECCIÓN 3
+===================================================== */
+
+.familia {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 1050px;
+
+    /*
+       Elimina cualquier pequeño salto de un píxel.
+    */
+    margin-top: -1px;
+
+    overflow: hidden;
+
+    background-image:
+        url("imagenes/seccion-3/fondo-seccion-3.png");
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+
+/*
+   Corrección de la unión:
+   no repite la imagen anterior ni usa máscaras.
+   Solo iguala luz y color en una zona corta.
+*/
+
+.familia__empalme {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    z-index: 2;
+
+    width: 100%;
+    height: 220px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(12, 4, 1, 0) 0%,
+            rgba(19, 8, 3, 0.06) 25%,
+            rgba(31, 15, 7, 0.15) 50%,
+            rgba(24, 10, 4, 0.08) 72%,
+            rgba(12, 4, 1, 0) 100%
+        );
+
+    filter:
+        blur(1.5px);
+}
+
+
+.familia__capa {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    background:
+        radial-gradient(
+            circle at 50% 18%,
+            rgba(255, 213, 133, 0.04) 0%,
+            transparent 30%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(11, 3, 1, 0.22) 0%,
+            rgba(15, 5, 1, 0.14) 17%,
+            rgba(18, 7, 2, 0.08) 40%,
+            rgba(18, 7, 2, 0.07) 72%,
+            rgba(14, 4, 1, 0.17) 100%
+        );
+}
+
+
+.familia__contenido {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    min-height: 100%;
+}
+
+
+/* =====================================================
+   PARTÍCULAS DORADAS
+===================================================== */
+
+.particulas {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+
+    overflow: hidden;
+}
+
+
+.particula-dorada {
+    position: absolute;
+
+    left: var(--izquierda);
+    bottom: -20px;
+
+    width: var(--tamano);
+    height: var(--tamano);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 247, 198, 0.95) 0%,
+            rgba(241, 194, 94, 0.72) 35%,
+            rgba(211, 146, 41, 0.10) 70%,
+            transparent 100%
+        );
+
+    opacity: 0;
+
+    filter:
+        blur(var(--desenfoque))
+        drop-shadow(0 0 4px rgba(255, 212, 112, 0.45));
+
+    animation:
+        subirParticula var(--duracion) linear infinite;
+
+    animation-delay:
+        var(--retraso);
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+@keyframes aparecerPortada {
+
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes aparecerElemento {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(24px)
+            scale(0.975);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes brilloTitulo {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.08);
+    }
+}
+
+
+@keyframes respirarBoton {
+
+    0%,
+    100% {
+        box-shadow:
+            inset 0 1px 1px rgba(255, 247, 204, 0.44),
+            0 0 0 1px rgba(255, 235, 171, 0.35),
+            0 0 15px rgba(222, 174, 79, 0.27),
+            0 6px 12px rgba(35, 11, 1, 0.52);
+    }
+
+    50% {
+        box-shadow:
+            inset 0 1px 1px rgba(255, 250, 216, 0.55),
+            0 0 0 1px rgba(255, 235, 171, 0.48),
+            0 0 22px rgba(231, 185, 91, 0.42),
+            0 7px 14px rgba(35, 11, 1, 0.55);
+    }
+}
+
+
+@keyframes expandirAnillo {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.84);
+    }
+
+    23% {
+        opacity: 0.38;
+    }
+
+    70%,
+    100% {
+        opacity: 0;
+        transform: scale(1.28);
+    }
+}
+
+
+@keyframes brilloAdorno {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(0.88);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.10);
+    }
+}
+
+
+@keyframes flotarFoto {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+@keyframes pulsoHalo {
+
+    0%,
+    100% {
+        opacity: 0.64;
+        transform: scale(0.97);
+    }
+
+    50% {
+        opacity: 0.92;
+        transform: scale(1.035);
+    }
+}
+
+
+@keyframes brilloPergamino {
+
+    0%,
+    70%,
+    100% {
+        opacity: 0;
+
+        border-color:
+            rgba(255, 230, 157, 0);
+
+        box-shadow:
+            0 0 0 rgba(255, 215, 118, 0);
+    }
+
+    80% {
+        opacity: 0.38;
+
+        border-color:
+            rgba(255, 230, 157, 0.27);
+
+        box-shadow:
+            0 0 10px rgba(255, 215, 118, 0.16);
+    }
+
+    90% {
+        opacity: 0;
+
+        border-color:
+            rgba(255, 230, 157, 0);
+
+        box-shadow:
+            0 0 16px rgba(255, 215, 118, 0);
+    }
+}
+
+
+@keyframes destellar {
+
+    0%,
+    40%,
+    100% {
+        opacity: 0;
+        transform:
+            scale(0.60)
+            rotate(0deg);
+    }
+
+    51% {
+        opacity: 0.82;
+        transform:
+            scale(1)
+            rotate(18deg);
+    }
+
+    63% {
+        opacity: 0;
+        transform:
+            scale(1.30)
+            rotate(29deg);
+    }
+}
+
+
+@keyframes subirParticula {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.5);
+    }
+
+    14% {
+        opacity: var(--opacidad);
+    }
+
+    77% {
+        opacity: var(--opacidad);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                var(--movimiento-x),
+                -110vh,
+                0
+            )
+            scale(1.08);
+    }
+}
+
+
+/* Reduce movimiento si el dispositivo lo solicita */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =====================================================
+   SECCIÓN 4 — CUENTA REGRESIVA
+===================================================== */
+
+.cuenta-regresiva {
+    position: relative;
+    z-index: 12;
+
+    width: 100%;
+    min-height: 860px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow: hidden;
+
+    background-image:
+        url("imagenes/seccion-3/fondo-cuenta-regresiva.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+
+/*
+   Oscurece solo la parte útil del salón,
+   pero deja visible el beige inferior del propio fondo.
+*/
+.cuenta-regresiva__capa {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(14, 5, 1, 0.34) 0%,
+            rgba(15, 5, 1, 0.28) 34%,
+            rgba(15, 5, 1, 0.22) 58%,
+            rgba(15, 5, 1, 0.08) 78%,
+            rgba(15, 5, 1, 0) 100%
+        );
+}
+
+
+.cuenta-regresiva__contenido {
+    position: relative;
+    z-index: 4;
+
+    width: min(92%, 980px);
+    min-height: 700px;
+
+    padding: 120px 20px 170px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    text-align: center;
+}
+
+
+/* Rosa */
+
+.cuenta-regresiva__rosa-contenedor {
+    position: relative;
+
+    width: 130px;
+    height: 170px;
+    margin-bottom: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation:
+        cuentaFlotarRosa 5.8s ease-in-out infinite;
+}
+
+
+.cuenta-regresiva__halo {
+    position: absolute;
+    z-index: -1;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 225, 152, 0.28) 0%,
+            rgba(230, 172, 69, 0.10) 44%,
+            transparent 74%
+        );
+
+    filter: blur(18px);
+
+    animation:
+        cuentaPulsoHalo 4.8s ease-in-out infinite;
+}
+
+
+.cuenta-regresiva__rosa {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 8px 12px rgba(24, 7, 1, 0.50))
+        drop-shadow(0 0 10px rgba(229, 176, 75, 0.18));
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Frase */
+
+.cuenta-regresiva__frase {
+    margin: 0 0 44px;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.45;
+
+    color: #f1d283;
+
+    text-shadow:
+        0 1px 0 rgba(255, 244, 199, 0.42),
+        0 3px 5px rgba(35, 11, 2, 0.92);
+}
+
+.cuenta-regresiva__frase span {
+    display: block;
+}
+
+
+/* Contador */
+
+.contador {
+    width: min(100%, 920px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 18px;
+    flex-wrap: nowrap;
+}
+
+
+.contador__item {
+    min-width: 120px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contador__valor {
+    display: block;
+
+    min-width: 110px;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: #f2d68b;
+
+    text-shadow:
+        0 1px 0 rgba(255, 246, 209, 0.55),
+        0 0 8px rgba(232, 185, 83, 0.16),
+        0 4px 6px rgba(31, 9, 1, 0.90);
+}
+
+
+.contador__etiqueta {
+    display: block;
+    margin-top: 15px;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.8px;
+
+    color: #e7c87b;
+
+    text-shadow:
+        0 2px 3px rgba(31, 9, 1, 0.90);
+}
+
+
+.contador__puntos {
+    margin-top: 3px;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 46px;
+    line-height: 1;
+
+    color: rgba(244, 212, 128, 0.92);
+
+    text-shadow:
+        0 0 6px rgba(240, 198, 96, 0.24);
+}
+
+
+/* Iniciales pequeñas abajo */
+
+.cuenta-regresiva__sello {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    z-index: 5;
+
+    transform: translateX(-50%);
+}
+
+
+.cuenta-regresiva__iniciales {
+    display: block;
+
+    width: 108px;
+    height: auto;
+
+    opacity: 0.95;
+
+    filter:
+        drop-shadow(0 2px 4px rgba(89, 56, 19, 0.10));
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Animaciones */
+
+@keyframes cuentaFlotarRosa {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes cuentaPulsoHalo {
+    0%,
+    100% {
+        opacity: 0.60;
+        transform: scale(0.97);
+    }
+
+    50% {
+        opacity: 0.92;
+        transform: scale(1.05);
+    }
+}
+/* =====================================================
+   MENSAJE CENTRAL — SECCIÓN 3
+===================================================== */
+
+.familia__contenido {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 220px 20px 110px;
+
+    text-align: center;
+}
+
+
+/* Luz central sobre el círculo del piso */
+
+.familia__mensaje {
+    position: relative;
+
+    width: min(90%, 620px);
+    padding: 48px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 224, 150, 0.13) 0%,
+            rgba(225, 164, 61, 0.045) 46%,
+            transparent 75%
+        );
+
+    filter:
+        drop-shadow(0 8px 18px rgba(22, 7, 1, 0.20));
+}
+
+
+/* Texto principal */
+
+.familia__mensaje-principal {
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: #f5d98e;
+
+    text-shadow:
+        0 1px 0 rgba(255, 247, 211, 0.65),
+        0 0 8px rgba(229, 177, 77, 0.24),
+        0 4px 6px rgba(36, 11, 2, 0.88);
+}
+
+
+/* Texto secundario */
+
+.familia__mensaje-secundario {
+    margin: 17px 0 0;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.3px;
+
+    color: #e9c978;
+
+    text-shadow:
+        0 2px 4px rgba(35, 10, 1, 0.88);
+}
+
+
+/* Líneas ornamentales */
+
+.familia__linea {
+    display: block;
+
+    width: 290px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(240, 201, 109, 0.74),
+            transparent
+        );
+
+    box-shadow:
+        0 0 6px rgba(230, 179, 78, 0.20);
+}
+
+
+.familia__linea--superior {
+    margin-bottom: 25px;
+}
+
+
+.familia__linea--inferior {
+    margin-top: 25px;
+}
+
+/* =====================================================
+   CORRECCIÓN DEFINITIVA — CENTRO DE LA SECCIÓN 3
+===================================================== */
+
+.familia {
+    position: relative;
+    min-height: 1050px;
+}
+
+
+/*
+   Ocupa toda la sección, incluso si anteriormente
+   tenía otros valores de padding o alineación.
+*/
+.familia__contenido {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 8 !important;
+
+    width: 100% !important;
+    min-height: 100% !important;
+
+    padding: 270px 20px 110px !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    text-align: center;
+    pointer-events: none;
+}
+
+
+/* Bloque central */
+
+.familia__mensaje {
+    position: relative;
+    z-index: 10;
+
+    width: min(90%, 660px);
+    padding: 52px 42px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    visibility: visible;
+    opacity: 1;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 224, 151, 0.16) 0%,
+            rgba(225, 164, 61, 0.055) 44%,
+            transparent 74%
+        );
+
+    filter:
+        drop-shadow(
+            0 9px 19px rgba(25, 7, 1, 0.25)
+        );
+}
+
+
+/* Título principal */
+
+.familia__mensaje-principal {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 1.05;
+
+    color: #f4d78d;
+
+    visibility: visible;
+    opacity: 1;
+
+    text-shadow:
+        0 1px 0 rgba(255, 247, 211, 0.68),
+        0 0 8px rgba(229, 177, 77, 0.26),
+        0 4px 6px rgba(36, 11, 2, 0.90);
+}
+
+
+/* Texto secundario */
+
+.familia__mensaje-secundario {
+    position: relative;
+    z-index: 2;
+
+    margin: 18px 0 0;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+
+    color: #ebcb7d;
+
+    visibility: visible;
+    opacity: 1;
+
+    text-shadow:
+        0 2px 4px rgba(35, 10, 1, 0.90);
+}
+
+
+/* Líneas finas, sin emojis */
+
+.familia__detalle {
+    display: block;
+
+    width: 310px;
+    max-width: 80%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(241, 204, 117, 0.80),
+            transparent
+        );
+
+    box-shadow:
+        0 0 7px rgba(230, 179, 78, 0.20);
+}
+
+
+.familia__detalle--superior {
+    margin-bottom: 27px;
+}
+
+
+.familia__detalle--inferior {
+    margin-top: 27px;
+}
+
+/* =====================================================
+   SECCIÓN 4 — RECUERDOS Y CALENDARIO
+===================================================== */
+
+.recuerdos-fecha {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    min-height: 860px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-image:
+        url("imagenes/seccion-4/fondo-calendario.png");
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+/* Luz general muy discreta */
+
+.recuerdos-fecha__luz {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        radial-gradient(
+            circle at 52% 45%,
+            rgba(255, 251, 229, 0.25) 0%,
+            rgba(242, 214, 158, 0.07) 44%,
+            transparent 75%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.04) 0%,
+            rgba(119, 78, 32, 0.025) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Contenedor principal */
+
+.recuerdos-fecha__contenido {
+    position: relative;
+    z-index: 4;
+
+    width: min(1220px, 92%);
+    min-height: 760px;
+
+    padding: 70px 25px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(450px, 0.95fr)
+        minmax(470px, 1.05fr);
+
+    align-items: center;
+    column-gap: 105px;
+}
+
+
+/* =====================================================
+   COMPOSICIÓN DE FOTOS
+===================================================== */
+
+.recuerdos-fecha__fotos {
+    position: relative;
+
+    width: 100%;
+    height: 610px;
+}
+
+
+/* Configuración común */
+
+.foto-recuerdo {
+    margin: 0;
+}
+
+
+.foto-recuerdo img {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =====================================================
+   FOTO VERTICAL
+===================================================== */
+
+.foto-recuerdo--principal {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 2;
+
+    width: 350px;
+    height: 520px;
+
+    overflow: hidden;
+
+    background-color: #eadfc8;
+
+    box-shadow:
+        0 18px 33px rgba(87, 54, 21, 0.20),
+        0 0 0 1px rgba(130, 88, 37, 0.10);
+
+    animation:
+        entradaFotoPrincipal 1s ease both;
+}
+
+
+.foto-recuerdo--principal img {
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+/* Luz alrededor de la fotografía */
+
+.foto-recuerdo__luz {
+    position: absolute;
+    z-index: 1;
+
+    inset: -35px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(224, 182, 97, 0.22) 0%,
+            transparent 68%
+        );
+
+    filter: blur(24px);
+}
+
+
+/* =====================================================
+   FOTO FAMILIAR SUPERPUESTA
+===================================================== */
+
+.foto-recuerdo--familia {
+    position: absolute;
+    right: -12px;
+    bottom: 0;
+    z-index: 5;
+
+    width: 325px;
+    height: auto;
+
+    filter:
+        drop-shadow(
+            0 18px 20px rgba(79, 46, 15, 0.24)
+        )
+        drop-shadow(
+            0 0 10px rgba(181, 128, 46, 0.14)
+        );
+
+    animation:
+        entradaFotoFamilia 1.1s 0.18s ease both;
+}
+
+
+.foto-recuerdo--familia img {
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Halo detrás del marco */
+
+.foto-recuerdo__halo {
+    position: absolute;
+    z-index: -1;
+
+    top: 50%;
+    left: 50%;
+
+    width: 94%;
+    height: 90%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(224, 180, 91, 0.25) 0%,
+            rgba(224, 180, 91, 0.06) 48%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =====================================================
+   CALENDARIO
+===================================================== */
+
+.calendario-evento {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* Encabezado */
+
+.calendario-evento__encabezado {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Save the Date */
+
+.calendario-evento__save {
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+    font-size: 68px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: #9b6c2e;
+
+    text-shadow:
+        0 1px 0 rgba(255, 250, 224, 0.85),
+        0 3px 7px rgba(100, 61, 22, 0.13);
+}
+
+
+/* Septiembre */
+
+.calendario-evento__fecha {
+    margin: 17px 0 0;
+
+    font-family: "Cinzel Decorative", serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.7px;
+
+    color: #6d4827;
+
+    text-shadow:
+        0 1px 0 rgba(255, 250, 225, 0.75);
+}
+
+/* Adorno creado con CSS */
+
+.calendario-evento__adorno {
+    width: 410px;
+    max-width: 90%;
+
+    margin: 22px 0 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.calendario-evento__adorno span {
+    flex: 1;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(113, 73, 31, 0.54),
+            transparent
+        );
+}
+
+
+.calendario-evento__adorno i {
+    width: 7px;
+    height: 7px;
+
+    margin: 0 10px;
+
+    border:
+        1px solid rgba(145, 96, 40, 0.64);
+
+    transform: rotate(45deg);
+}
+
+
+/* Imagen del calendario */
+
+.calendario-evento__imagen {
+    position: relative;
+
+    width: 490px;
+    max-width: 100%;
+}
+
+
+.calendario-evento__imagen img {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Resplandor detrás del calendario */
+
+.calendario-evento__resplandor {
+    position: absolute;
+    z-index: 1;
+
+    top: 50%;
+    left: 50%;
+
+    width: 110%;
+    height: 105%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(218, 181, 109, 0.11) 0%,
+            transparent 70%
+        );
+
+    filter: blur(19px);
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =====================================================
+   LEYENDA
+===================================================== */
+
+.calendario-evento__leyenda {
+    width: 490px;
+    max-width: 100%;
+
+    margin-top: 21px;
+    padding-top: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    border-top:
+        1px solid rgba(104, 67, 29, 0.22);
+
+    text-align: left;
+}
+
+
+.calendario-evento__dato {
+    width: 100%;
+    margin: 5px 0;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+
+.calendario-evento__dato p {
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+    line-height: 1.3;
+
+    color: #5f3c22;
+}
+
+
+.calendario-evento__dato p span {
+    color: #8b5b27;
+}
+
+
+/* Símbolo circular */
+
+.calendario-evento__simbolo {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    width: 19px;
+    height: 19px;
+}
+
+
+.calendario-evento__simbolo--circulo {
+    border:
+        2px solid #aa7734;
+
+    border-radius: 50%;
+}
+
+
+/* Corazón creado con CSS */
+
+.calendario-evento__simbolo--corazon {
+    width: 18px;
+    height: 16px;
+
+    margin-top: 2px;
+
+    background-color: #a97737;
+
+    transform: rotate(-45deg);
+}
+
+
+.calendario-evento__simbolo--corazon::before,
+.calendario-evento__simbolo--corazon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background-color: #a97737;
+}
+
+
+.calendario-evento__simbolo--corazon::before {
+    top: -8px;
+    left: 0;
+}
+
+
+.calendario-evento__simbolo--corazon::after {
+    top: 0;
+    left: 8px;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+@keyframes entradaFotoPrincipal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.975);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes entradaFotoFamilia {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(28px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   TABLETS
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .recuerdos-fecha__contenido {
+        width: min(940px, 94%);
+
+        grid-template-columns:
+            minmax(390px, 0.92fr)
+            minmax(410px, 1.08fr);
+
+        column-gap: 50px;
+    }
+
+
+    .recuerdos-fecha__fotos {
+        height: 560px;
+    }
+
+
+    .foto-recuerdo--principal {
+        width: 310px;
+        height: 470px;
+    }
+
+
+    .foto-recuerdo--familia {
+        width: 280px;
+    }
+
+
+    .calendario-evento__save {
+        font-size: 61px;
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 760px) {
+
+    .recuerdos-fecha {
+        min-height: auto;
+
+        background-position: center top;
+    }
+
+
+    .recuerdos-fecha__contenido {
+        width: 100%;
+        min-height: auto;
+
+        padding:
+            62px
+            20px
+            80px;
+
+        display: flex;
+        flex-direction: column;
+
+        row-gap: 65px;
+    }
+
+
+    /* Las dos fotos permanecen juntas */
+
+    .recuerdos-fecha__fotos {
+        position: relative;
+
+        width: min(100%, 390px);
+        height: 585px;
+
+        margin: 0 auto;
+    }
+
+
+    .foto-recuerdo--principal {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 78%;
+        height: 475px;
+    }
+
+
+    .foto-recuerdo--familia {
+        position: absolute;
+
+        right: 0;
+        bottom: 0;
+
+        width: 72%;
+    }
+
+
+    /* Calendario debajo de las fotos */
+
+    .calendario-evento {
+        width: 100%;
+    }
+
+
+    .calendario-evento__save {
+        font-size: 55px;
+    }
+
+
+    .calendario-evento__mes {
+        margin-top: 16px;
+
+        font-size: 22px;
+        letter-spacing: 1.2px;
+    }
+
+
+    .calendario-evento__imagen {
+        width: min(100%, 450px);
+    }
+
+
+    .calendario-evento__leyenda {
+        width: min(100%, 450px);
+    }
+
+
+    .calendario-evento__dato p {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 430px) {
+
+    .recuerdos-fecha__contenido {
+        padding:
+            52px
+            16px
+            70px;
+    }
+
+
+    .recuerdos-fecha__fotos {
+        width: min(100%, 350px);
+        height: 525px;
+    }
+
+
+    .foto-recuerdo--principal {
+        width: 80%;
+        height: 425px;
+    }
+
+
+    .foto-recuerdo--familia {
+        width: 72%;
+    }
+
+
+    .calendario-evento__save {
+        font-size: 50px;
+    }
+
+
+    .calendario-evento__dato {
+        align-items: flex-start;
+    }
+
+
+    .calendario-evento__dato p {
+        font-size: 15px;
+    }
+
+}
+
+/* ==================================================
+   SECCIÓN 5 — HORA Y LUGAR
+   VERSIÓN FINAL PARA COMPUTADORA
+================================================== */
+
+.seccion-5 {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 45px 20px;
+
+    background-image:
+        url("imagenes/seccion-5/fondo-biblioteca.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Viñeta suave para dirigir la mirada al centro */
+.seccion-5::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 240, 203, 0.03) 0%,
+            rgba(255, 240, 203, 0) 38%,
+            rgba(15, 7, 3, 0.31) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Resplandor cálido detrás del marco */
+.seccion-5::after {
+    content: "";
+
+    position: absolute;
+
+    width: 610px;
+    height: 610px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 226, 153, 0.17) 0%,
+            rgba(255, 226, 153, 0.06) 43%,
+            transparent 72%
+        );
+
+    filter: blur(18px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Marco completo */
+.s5-contenedor {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(88vw, 570px);
+
+    aspect-ratio: 430 / 610;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: s5-aparecer 0.9s ease both;
+}
+
+/* Imagen decorativa */
+.s5-marco {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 22px 32px rgba(0, 0, 0, 0.32))
+        drop-shadow(0 0 15px rgba(255, 220, 143, 0.24));
+
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Contenido interior */
+.s5-contenido {
+    position: absolute;
+
+    top: 40%;
+    left: 17%;
+    right: 17%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    color: #3b281d;
+}
+
+/* Título */
+.s5-titulo {
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(2.65rem, 3.2vw, 3.45rem);
+
+    font-weight: 400;
+    line-height: 1;
+
+    color: #82502b;
+
+    text-shadow:
+        0 1px 0 rgba(255, 250, 234, 0.9),
+        0 3px 8px rgba(93, 51, 21, 0.12);
+}
+
+/* Hora */
+.s5-hora {
+    margin: 20px 0 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(1.45rem, 1.8vw, 1.75rem);
+
+    font-weight: 700;
+    line-height: 1;
+
+    color: #2d1e15;
+
+    letter-spacing: 0.015em;
+}
+
+/* Información del lugar */
+.s5-info {
+    margin-top: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 3px;
+}
+
+/* “Local de eventos” */
+.s5-etiqueta {
+    margin: 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 0.92rem;
+
+    font-weight: 500;
+    line-height: 1.25;
+
+    color: #4a3325;
+}
+
+/* Los Ficus */
+.s5-lugar {
+    margin: 2px 0 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+    line-height: 1.1;
+
+    color: #342218;
+
+    letter-spacing: 0.045em;
+
+    text-transform: uppercase;
+}
+
+/* Dirección */
+.s5-direccion {
+    margin: 8px 0 0;
+
+    max-width: 270px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.08rem;
+
+    font-weight: 600;
+    line-height: 1.25;
+
+    color: #51372a;
+}
+
+/* ==================================================
+   BOTÓN VER UBICACIÓN
+================================================== */
+
+.s5-boton-mapa {
+    position: relative;
+
+    margin-top: -50px;
+
+    width: 230px;
+    height: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    background-image:
+        url("imagenes/generales/boton-dorado.png");
+
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    filter:
+        brightness(1)
+        drop-shadow(0 6px 8px rgba(78, 46, 15, 0.18));
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+/* Resplandor elegante, sin rectángulo blanco */
+.s5-boton-mapa:hover {
+    transform:
+        translateY(-3px)
+        scale(1.035);
+
+    filter:
+        brightness(1.2)
+        saturate(1.08)
+        drop-shadow(0 9px 13px rgba(95, 57, 17, 0.26))
+        drop-shadow(0 0 10px rgba(255, 214, 104, 0.5));
+}
+
+/* Evita recuadros al presionar */
+.s5-boton-mapa:focus,
+.s5-boton-mapa:active,
+.s5-boton-mapa:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Texto del botón */
+.s5-boton-texto {
+    position: relative;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    color: #563713;
+
+    letter-spacing: 0.055em;
+
+    text-transform: uppercase;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+/* Iluminación del texto */
+.s5-boton-mapa:hover .s5-boton-texto {
+    color: #694313;
+
+    text-shadow:
+        0 0 3px rgba(255, 251, 218, 1),
+        0 0 7px rgba(247, 205, 95, 0.68),
+        0 0 12px rgba(212, 153, 43, 0.3);
+}
+
+/* Aparición inicial */
+@keyframes s5-aparecer {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.975);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+/* ==================================================
+   SECCIÓN 7 — FRASE
+================================================== */
+
+.seccion-7 {
+    position: relative;
+
+    width: 100%;
+    min-height: 360px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 38px 20px;
+
+    background-image:
+        url("imagenes/seccion-7/seccion-7-fondo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Capa clara para que el texto se lea mejor */
+.s7-capa {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(255, 250, 236, 0.34);
+
+    backdrop-filter: blur(0.4px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Viñeta muy suave */
+.seccion-7::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 48%,
+            rgba(98, 73, 47, 0.08) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Contenido */
+.s7-contenido {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(90%, 650px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+.s7-contenido {
+    padding: 24px 45px;
+    border-top: 1px solid rgba(151, 113, 57, 0.28);
+    border-bottom: 1px solid rgba(151, 113, 57, 0.28);
+}
+
+/* Rosa */
+.s7-rosa {
+    width: 96px;
+    height: auto;
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    filter:
+        drop-shadow(
+            0 5px 7px
+            rgba(77, 42, 25, 0.18)
+        );
+
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Frase */
+.s7-frase {
+    margin: 0;
+
+    max-width: 590px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.23;
+
+    color: #2f251e;
+
+    text-shadow:
+        0 1px 0
+        rgba(255, 255, 255, 0.7);
+
+    text-wrap: balance;
+}
+.s7-frase span {
+    color: #8b5737;
+    font-style: italic;
+}
+/* ==================================================
+   SECCIÓN 8 — CARRUSEL DE RECUERDOS
+   VERSIÓN PARA COMPUTADORA
+================================================== */
+
+.seccion-8 {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 65px 30px;
+
+    background-image:
+        url("imagenes/seccion-4/fondo-calendario.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Capa clara para integrar las fotografías con el fondo */
+.s8-capa {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 249, 232, 0.22) 0%,
+            rgba(255, 246, 220, 0.34) 50%,
+            rgba(244, 230, 199, 0.27) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Viñeta elegante */
+.seccion-8::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 42%,
+            rgba(63, 39, 19, 0.16) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Luz central */
+.seccion-8::after {
+    content: "";
+
+    position: absolute;
+
+    width: 850px;
+    height: 620px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 246, 210, 0.42) 0%,
+            rgba(255, 237, 181, 0.13) 46%,
+            transparent 74%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Contenido general */
+.s8-contenido {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 1240px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* Encabezado */
+.s8-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+}
+
+.s8-linea {
+    width: 120px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(155, 105, 37, 0.82),
+            transparent
+        );
+}
+
+.s8-titulo {
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(3.2rem, 4.3vw, 4.6rem);
+    font-weight: 400;
+    line-height: 1;
+
+    color: #81502b;
+
+    text-shadow:
+        0 1px 0 rgba(255, 252, 236, 0.95),
+        0 4px 12px rgba(89, 49, 19, 0.13);
+}
+
+.s8-subtitulo {
+    margin: 10px 0 38px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    color: #5c4433;
+
+    letter-spacing: 0.04em;
+}
+
+/* ==================================================
+   CARRUSEL
+================================================== */
+
+.s8-carrusel {
+    position: relative;
+
+    width: min(100%, 1110px);
+    height: 570px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Zona de las fotografías */
+.s8-escenario {
+    position: relative;
+
+    width: 900px;
+    height: 100%;
+
+    perspective: 1400px;
+}
+
+/* Cada fotografía */
+.s8-tarjeta {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 330px;
+    height: 480px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.76);
+
+    transition:
+        transform 0.65s cubic-bezier(0.22, 0.8, 0.25, 1),
+        opacity 0.5s ease,
+        filter 0.5s ease,
+        visibility 0.5s ease;
+
+    pointer-events: none;
+}
+
+/* Fotografía principal */
+.s8-tarjeta.s8-activa {
+    z-index: 4;
+
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%)
+        translateX(0)
+        scale(1);
+
+    filter: brightness(1);
+
+    pointer-events: auto;
+}
+
+/* Fotografía anterior visible a la izquierda */
+.s8-tarjeta.s8-anterior {
+    z-index: 2;
+
+    opacity: 0.62;
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%)
+        translateX(-315px)
+        rotateY(15deg)
+        scale(0.79);
+
+    filter:
+        brightness(0.76)
+        saturate(0.78);
+
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Fotografía siguiente visible a la derecha */
+.s8-tarjeta.s8-siguiente {
+    z-index: 2;
+
+    opacity: 0.62;
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%)
+        translateX(315px)
+        rotateY(-15deg)
+        scale(0.79);
+
+    filter:
+        brightness(0.76)
+        saturate(0.78);
+
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Marco dorado alrededor de las fotografías */
+.s8-marco-foto {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 9px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(169, 118, 43, 0.74);
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f7e9bd 0%,
+            #b9862f 20%,
+            #f5df9c 44%,
+            #9a6722 70%,
+            #f2d88a 100%
+        );
+
+    box-shadow:
+        0 22px 38px rgba(54, 31, 14, 0.28),
+        0 0 0 4px rgba(255, 248, 219, 0.56),
+        0 0 22px rgba(212, 166, 77, 0.17);
+}
+
+/* Línea interior del marco */
+.s8-marco-foto::after {
+    content: "";
+
+    position: absolute;
+    inset: 14px;
+
+    border:
+        1px solid
+        rgba(255, 239, 185, 0.75);
+
+    border-radius: 3px;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+/* Imagen */
+.s8-foto {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 2px;
+
+    user-select: none;
+    -webkit-user-drag: none;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.5s ease;
+}
+
+/* Zoom delicado en la fotografía principal */
+.s8-tarjeta.s8-activa:hover .s8-foto {
+    transform: scale(1.025);
+}
+
+/* ==================================================
+   FLECHAS
+================================================== */
+
+.s8-flecha {
+    position: absolute;
+    top: 50%;
+
+    z-index: 8;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 0 7px;
+
+    border:
+        1px solid
+        rgba(160, 108, 34, 0.68);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 247, 219, 0.58);
+
+    box-shadow:
+        0 8px 17px rgba(67, 39, 17, 0.16),
+        inset 0 0 12px rgba(255, 255, 255, 0.48);
+
+    backdrop-filter: blur(5px);
+
+    color: #865622;
+
+    font-family: Georgia, serif;
+    font-size: 3.1rem;
+    font-weight: 400;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        transform 0.28s ease,
+        background 0.28s ease,
+        color 0.28s ease,
+        box-shadow 0.28s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.s8-flecha-anterior {
+    left: 0;
+}
+
+.s8-flecha-siguiente {
+    right: 0;
+}
+
+.s8-flecha:hover {
+    color: #664015;
+
+    background:
+        rgba(255, 237, 179, 0.88);
+
+    box-shadow:
+        0 10px 22px rgba(67, 39, 17, 0.22),
+        0 0 15px rgba(224, 178, 76, 0.37);
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+.s8-flecha:focus,
+.s8-flecha:active,
+.s8-flecha:focus-visible {
+    outline: none;
+}
+
+/* ==================================================
+   PUNTOS INFERIORES
+================================================== */
+
+.s8-indicadores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    margin-top: 19px;
+}
+
+.s8-punto {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(133, 85, 27, 0.8);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 250, 229, 0.72);
+
+    box-shadow: none;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        border-radius 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.s8-punto.s8-punto-activo {
+    width: 29px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #b47a27,
+            #e8c767,
+            #9d641c
+        );
+
+    box-shadow:
+        0 0 9px rgba(205, 157, 55, 0.42);
+}
+
+.s8-punto:focus,
+.s8-punto:active,
+.s8-punto:focus-visible {
+    outline: none;
+}
+/* ==================================================
+   SECCIÓN 9 — DETALLES DE LA CELEBRACIÓN
+   VERSIÓN PARA COMPUTADORA
+================================================== */
+
+.seccion-9 {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 60px 35px;
+
+    background-image:
+        url("imagenes/seccion-8/fondo-9.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Oscurece ligeramente el fondo */
+.s9-capa {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(22, 12, 7, 0.12) 0%,
+            rgba(16, 8, 4, 0.20) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Luz cálida detrás de los pergaminos */
+.seccion-9::after {
+    content: "";
+
+    position: absolute;
+
+    width: 92%;
+    height: 74%;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 222, 151, 0.16) 0%,
+            rgba(255, 215, 130, 0.06) 48%,
+            transparent 74%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Contenedor de los tres pergaminos */
+.s9-contenedor {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 1420px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(35px, 4vw, 75px);
+}
+
+/* Cada pergamino */
+.s9-pergamino {
+    position: relative;
+
+    width: clamp(300px, 28vw, 390px);
+
+    aspect-ratio: 355 / 453;
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.38s ease,
+        filter 0.38s ease;
+}
+
+/* El central queda ligeramente elevado */
+.s9-pergamino-recomendaciones {
+    transform: translateY(-18px);
+}
+
+/* Hover elegante */
+.s9-pergamino:hover {
+    transform:
+        translateY(-12px)
+        scale(1.025);
+
+    filter:
+        brightness(1.04)
+        drop-shadow(
+            0 20px 25px
+            rgba(20, 10, 4, 0.30)
+        )
+        drop-shadow(
+            0 0 15px
+            rgba(238, 194, 94, 0.22)
+        );
+}
+
+/* Conserva la elevación especial del central */
+.s9-pergamino-recomendaciones:hover {
+    transform:
+        translateY(-28px)
+        scale(1.025);
+}
+
+/* Imagen base */
+.s9-imagen-pergamino {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: fill;
+
+    filter:
+        drop-shadow(
+            0 18px 22px
+            rgba(20, 10, 4, 0.28)
+        );
+
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Contenido general */
+.s9-texto {
+    position: absolute;
+
+    left: 13%;
+    right: 13%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    color: #2f2118;
+
+    z-index: 2;
+}
+
+/* Ajustes individuales */
+.s9-texto-regalos {
+    top: 26%;
+}
+
+.s9-texto-recomendaciones {
+    top: 22%;
+    left: 14%;
+    right: 14%;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.s9-texto-vestimenta {
+    top: 18%;
+}
+
+/* Títulos */
+.s9-titulo {
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(2rem, 2.5vw, 2.85rem);
+    font-weight: 400;
+    line-height: 1.05;
+
+    color: #8b6138;
+
+    text-shadow:
+        0 1px 0 rgba(255, 249, 225, 0.9),
+        0 3px 8px rgba(95, 55, 24, 0.10);
+}
+
+/* Título largo */
+.s9-titulo-vestimenta {
+    max-width: 290px;
+
+    font-size: clamp(1.85rem, 2.25vw, 2.6rem);
+}
+
+/* Texto común */
+.s9-parrafo {
+    margin: 22px 0 0;
+
+    max-width: 255px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(1.08rem, 1.25vw, 1.28rem);
+    font-weight: 600;
+    line-height: 1.25;
+
+    color: #2c211a;
+
+    text-wrap: balance;
+}
+
+/* Lista */
+.s9-lista {
+    margin: 20px 0 0;
+    padding-left: 24px;
+
+    max-width: 270px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(1rem, 1.18vw, 1.22rem);
+    font-weight: 600;
+    line-height: 1.3;
+
+    color: #2d2119;
+}
+
+.s9-lista li {
+    padding-left: 3px;
+    margin-bottom: 3px;
+}
+
+.s9-lista li::marker {
+    color: #8f602a;
+    font-size: 0.8em;
+}
+
+/* Palabra Formal */
+.s9-formal {
+    margin: 10px 0 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(2rem, 2.35vw, 2.7rem);
+    font-weight: 400;
+    line-height: 1;
+
+    color: #8a5c32;
+}
+
+/* Texto del código de vestimenta */
+.s9-parrafo-vestimenta {
+    margin-top: 18px;
+
+    max-width: 265px;
+}
+
+/* Brillo sutil en los bordes */
+.s9-pergamino::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 4% 5%;
+
+    border-radius: 8px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 55%,
+            rgba(255, 229, 157, 0.12) 100%
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease;
+
+    z-index: 1;
+}
+
+.s9-pergamino:hover::after {
+    opacity: 1;
+}
+/* ==================================================
+   SECCIÓN 10 — CONFIRMAR ASISTENCIA
+   VERSIÓN PARA COMPUTADORA
+================================================== */
+
+.seccion-10 {
+    position: relative;
+
+    width: 100%;
+    min-height: 390px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 45px 20px;
+
+    background-image:
+        url("imagenes/seccion-4/fondo-calendario.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Capa clara para suavizar el fondo */
+.s10-capa {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(255, 248, 226, 0.28);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Luz central */
+.seccion-10::before {
+    content: "";
+
+    position: absolute;
+
+    width: 680px;
+    height: 310px;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 248, 219, 0.52) 0%,
+            rgba(255, 238, 190, 0.18) 48%,
+            transparent 75%
+        );
+
+    filter: blur(13px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Viñeta muy delicada */
+.seccion-10::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 56%,
+            rgba(107, 72, 36, 0.08) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* Contenido principal */
+.s10-contenido {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(90%, 620px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* Rosa */
+.s10-rosa {
+    width: 92px;
+    height: auto;
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    filter:
+        drop-shadow(
+            0 6px 8px
+            rgba(79, 45, 23, 0.16)
+        );
+
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Título */
+.s10-titulo {
+    margin: 0;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: clamp(3rem, 3.8vw, 4rem);
+
+    font-weight: 400;
+    line-height: 1;
+
+    color: #8a5c31;
+
+    text-shadow:
+        0 1px 0 rgba(255, 251, 233, 0.95),
+        0 4px 11px rgba(93, 51, 21, 0.12);
+}
+
+/* Indicació n */
+.s10-indicacion {
+    margin: 12px 0 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    color: #30231c;
+}
+
+/* ==================================================
+   BOTÓN CONFIRMAR
+================================================== */
+
+.s10-boton {
+    position: relative;
+
+    margin-top: -45px;
+
+    width: 230px;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    background-image:
+        url("imagenes/generales/boton-dorado.png");
+
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    filter:
+        brightness(1)
+        drop-shadow(
+            0 6px 8px
+            rgba(76, 45, 14, 0.17)
+        );
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+/* Iluminación elegante */
+.s10-boton:hover {
+    transform:
+        translateY(-3px)
+        scale(1.035);
+
+    filter:
+        brightness(1.18)
+        saturate(1.08)
+        drop-shadow(
+            0 9px 13px
+            rgba(91, 54, 16, 0.25)
+        )
+        drop-shadow(
+            0 0 11px
+            rgba(255, 215, 110, 0.46)
+        );
+}
+
+/* Elimina recuadros al hacer clic */
+.s10-boton:focus,
+.s10-boton:active,
+.s10-boton:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Texto del botón */
+.s10-boton-texto {
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 0.86rem;
+    font-weight: 700;
+
+    color: #583814;
+
+    letter-spacing: 0.045em;
+
+    text-transform: uppercase;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+/* Iluminación de las letras */
+.s10-boton:hover .s10-boton-texto {
+    color: #6d4616;
+
+    text-shadow:
+        0 0 3px rgba(255, 250, 215, 0.95),
+        0 0 8px rgba(226, 177, 70, 0.58);
+}
+
+/* Frase inferior */
+.s10-frase {
+    margin: -45px 0 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.32rem;
+    font-weight: 600;
+
+    line-height: 1.08;
+
+    color: #3c2c22;
+
+    text-wrap: balance;
+}
+/* ==================================================
+   BARRA SUPERIOR DE PROGRESO
+================================================== */
+
+.barra-progreso {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    z-index: 9999;
+
+    background: rgba(255, 245, 213, 0.13);
+
+    pointer-events: none;
+}
+
+.barra-progreso__relleno {
+    width: 0%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #84501f 0%,
+            #d7ad4e 34%,
+            #fff0a8 52%,
+            #c99331 75%,
+            #704015 100%
+        );
+
+    box-shadow:
+        0 0 7px rgba(255, 220, 125, 0.65);
+
+    transition: width 0.08s linear;
+}
+
+
+/* ==================================================
+   CONTROL FLOTANTE DE MÚSICA
+================================================== */
+
+.control-musica {
+    position: fixed;
+
+    right: 28px;
+    bottom: 28px;
+
+    z-index: 9998;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(191, 142, 61, 0.82);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255, 251, 220, 0.98),
+            rgba(227, 191, 111, 0.94) 47%,
+            rgba(138, 87, 30, 0.96) 100%
+        );
+
+    box-shadow:
+        0 10px 22px rgba(35, 19, 8, 0.30),
+        inset 0 1px 1px rgba(255, 255, 255, 0.88),
+        0 0 0 4px rgba(255, 231, 164, 0.10);
+
+    color: #553312;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease,
+        box-shadow 0.3s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.control-musica:hover {
+    transform:
+        translateY(-3px)
+        scale(1.06);
+
+    filter: brightness(1.12);
+
+    box-shadow:
+        0 13px 25px rgba(35, 19, 8, 0.34),
+        inset 0 1px 1px rgba(255, 255, 255, 0.92),
+        0 0 17px rgba(239, 196, 96, 0.42);
+}
+
+.control-musica:focus,
+.control-musica:active,
+.control-musica:focus-visible {
+    outline: none;
+}
+
+.control-musica__icono {
+    position: relative;
+
+    z-index: 3;
+
+    margin-left: 3px;
+
+    font-family: Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1;
+
+    color: #53310f;
+}
+
+.control-musica__halo {
+    position: absolute;
+
+    inset: -7px;
+
+    border:
+        1px solid
+        rgba(226, 181, 87, 0.36);
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+/* Ondas ocultas cuando está pausada */
+.control-musica__ondas {
+    position: absolute;
+
+    z-index: 3;
+
+    display: none;
+    align-items: center;
+
+    gap: 3px;
+
+    height: 20px;
+}
+
+.control-musica__ondas i {
+    display: block;
+
+    width: 3px;
+    height: 8px;
+
+    border-radius: 8px;
+
+    background: #573512;
+
+    transform-origin: center bottom;
+}
+
+/* Estado reproduciendo */
+.control-musica.reproduciendo .control-musica__icono {
+    display: none;
+}
+
+.control-musica.reproduciendo .control-musica__ondas {
+    display: flex;
+}
+
+.control-musica.reproduciendo .control-musica__ondas i:nth-child(1) {
+    animation: ondaMusica 0.75s ease-in-out infinite;
+}
+
+.control-musica.reproduciendo .control-musica__ondas i:nth-child(2) {
+    animation: ondaMusica 0.75s ease-in-out 0.16s infinite;
+}
+
+.control-musica.reproduciendo .control-musica__ondas i:nth-child(3) {
+    animation: ondaMusica 0.75s ease-in-out 0.32s infinite;
+}
+
+.control-musica.reproduciendo .control-musica__halo {
+    animation: haloMusica 2.2s ease-out infinite;
+}
+
+@keyframes ondaMusica {
+    0%,
+    100% {
+        height: 7px;
+    }
+
+    50% {
+        height: 19px;
+    }
+}
+
+@keyframes haloMusica {
+    0% {
+        opacity: 0.55;
+        transform: scale(0.88);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+}
+
+
+/* ==================================================
+   APARICIÓN AL HACER SCROLL
+================================================== */
+
+.revelar {
+    opacity: 0;
+
+    transform:
+        translateY(34px)
+        scale(0.985);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.2, 0.75, 0.25, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+.revelar.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.retraso-1 {
+    transition-delay: 0.08s;
+}
+
+.retraso-2 {
+    transition-delay: 0.2s;
+}
+
+.retraso-3 {
+    transition-delay: 0.32s;
+}
+
+
+/* ==================================================
+   CIERRE FINAL
+================================================== */
+
+.seccion-cierre {
+    position: relative;
+
+    width: 100%;
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 55px 20px;
+
+    background-image:
+        url("imagenes/seccion-4/fondo-calendario.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cierre-capa {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 249, 229, 0.30),
+            rgba(255, 241, 205, 0.38)
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.seccion-cierre::before {
+    content: "";
+
+    position: absolute;
+
+    width: 670px;
+    height: 360px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 252, 231, 0.72) 0%,
+            rgba(255, 229, 165, 0.329) 47%,
+            transparent 74%
+        );
+
+    filter: blur(16px);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.cierre-contenido {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(90%, 670px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.cierre-rosa {
+    width: 88px;
+    height: auto;
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    filter:
+        drop-shadow(0 7px 8px rgba(71, 40, 20, 0.18));
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.cierre-frase {
+    margin: 0;
+
+    max-width: 530px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.55rem;
+    font-weight: 600;
+    line-height: 1.3;
+
+    color: #3a2a20;
+
+    text-wrap: balance;
+}
+
+.cierre-despedida {
+    margin: 24px 0 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.16rem;
+    font-style: italic;
+    font-weight: 600;
+
+    color: #6e4a31;
+}
+
+.cierre-nombre {
+    margin: 7px 0 0;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: clamp(3.3rem, 4.5vw, 4.8rem);
+    font-weight: 400;
+    line-height: 1;
+
+    color: #87562f;
+
+    text-shadow:
+        0 1px 0 rgba(255, 253, 238, 0.95),
+        0 4px 12px rgba(91, 51, 21, 0.14);
+}
+
+
+/* ==================================================
+   CRÉDITO FINAL
+================================================== */
+
+.credito-final {
+    position: relative;
+
+    min-height: 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #332015 0%,
+            #1c100a 100%
+        );
+
+    border-top:
+        1px solid
+        rgba(213, 168, 81, 0.30);
+
+    text-align: center;
+}
+
+.credito-final::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 240px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d2a54b,
+            transparent
+        );
+}
+
+.credito-final p {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: rgba(255, 242, 209, 0.72);
+
+    letter-spacing: 0.055em;
+}
+
+.credito-final span {
+    color: #e2bc69;
+
+    font-weight: 600;
+}
+/* =========================================
+   ANIMACIÓN GENERAL AL HACER SCROLL
+========================================= */
+
+.animar-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 0.75, 0.25, 1);
+    will-change: opacity, transform;
+}
+
+.animar-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ==================================================
+   UNIR CONFIRMACIÓN Y CIERRE FINAL
+================================================== */
+
+.seccion-10,
+.seccion-cierre {
+    min-height: auto;
+    background-image: url("imagenes/seccion-4/fondo-calendario.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Parte superior */
+.seccion-10 {
+    padding: 55px 20px 24px;
+}
+
+/* Parte inferior */
+.seccion-cierre {
+    margin-top: -2px;
+    padding: 24px 20px 55px;
+    border: none;
+}
+
+/* Igualamos las capas para eliminar la franja */
+.s10-capa,
+.cierre-capa {
+    background: rgba(255, 248, 226, 0.25);
+}
+
+/* Quitamos luces distintas que causan la división */
+.seccion-10::before,
+.seccion-10::after,
+.seccion-cierre::before,
+.seccion-cierre::after {
+    display: none;
+}
+
+/* Compactamos el bloque de confirmación */
+.s10-rosa {
+    width: 78px;
+    margin-bottom: 7px;
+}
+
+.s10-titulo {
+    font-size: clamp(3rem, 3.7vw, 3.8rem);
+}
+
+.s10-indicacion {
+    margin-top: 8px;
+}
+
+.s10-boton {
+    margin-top: -35px;
+}
+
+.s10-frase {
+    margin-top: -45px;
+}
+
+/* Acercamos el cierre */
+.cierre-rosa {
+    width: 72px;
+    margin-bottom: 12px;
+}
+
+.cierre-frase {
+    font-size: 1.4rem;
+}
+
+.cierre-despedida {
+    margin-top: 18px;
+}
+
+.cierre-nombre {
+    margin-top: 3px;
+}
+/* =====================================================
+   RESPONSIVE GENERAL — TABLET Y CELULAR
+   PEGAR AL FINAL DEL STYLE.CSS
+===================================================== */
+
+/* Evita desbordamientos generales */
+img,
+svg {
+    max-width: 100%;
+}
+
+button,
+a {
+    touch-action: manipulation;
+}
+
+
+/* =====================================================
+   LAPTOP Y TABLET HORIZONTAL
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    /* PORTADA */
+
+    .hero__contenido {
+        width: min(90%, 620px);
+        margin-top: 145px;
+    }
+
+    .hero__titulo {
+        font-size: 108px;
+    }
+
+    .hero__frase {
+        font-size: 24px;
+    }
+
+
+    /* PRESENTACIÓN */
+
+    .presentacion {
+        height: 920px;
+    }
+
+    .presentacion__contenido {
+        width: min(90%, 720px);
+    }
+
+    .presentacion__foto-contenedor {
+        width: 285px;
+        height: 395px;
+    }
+
+    .presentacion__nombre {
+        font-size: 82px;
+    }
+
+    .pergamino {
+        width: 460px;
+    }
+
+
+    /* MENSAJE */
+
+    .familia__mensaje-principal {
+        font-size: 62px;
+    }
+
+
+    /* CUENTA REGRESIVA */
+
+    .cuenta-regresiva__contenido {
+        width: min(94%, 900px);
+    }
+
+    .contador {
+        gap: 12px;
+    }
+
+    .contador__item {
+        min-width: 105px;
+    }
+
+    .contador__valor {
+        min-width: 95px;
+        font-size: 52px;
+    }
+
+
+    /* HORA Y LUGAR */
+
+    .s5-contenedor {
+        width: min(82vw, 530px);
+    }
+
+
+    /* CARRUSEL */
+
+    .s8-carrusel {
+        width: min(100%, 980px);
+    }
+
+    .s8-escenario {
+        width: 790px;
+    }
+
+    .s8-tarjeta {
+        width: 300px;
+        height: 440px;
+    }
+
+    .s8-tarjeta.s8-anterior {
+        transform:
+            translate(-50%, -50%)
+            translateX(-270px)
+            rotateY(15deg)
+            scale(0.78);
+    }
+
+    .s8-tarjeta.s8-siguiente {
+        transform:
+            translate(-50%, -50%)
+            translateX(270px)
+            rotateY(-15deg)
+            scale(0.78);
+    }
+
+
+    /* PERGAMINOS */
+
+    .s9-contenedor {
+        gap: 24px;
+    }
+
+    .s9-pergamino {
+        width: clamp(270px, 29vw, 340px);
+    }
+
+    .s9-titulo {
+        font-size: clamp(1.9rem, 2.7vw, 2.45rem);
+    }
+
+    .s9-parrafo,
+    .s9-lista {
+        font-size: 1rem;
+    }
+}
+
+
+/* =====================================================
+   TABLET VERTICAL
+===================================================== */
+
+@media (max-width: 900px) {
+
+    /* CONTROL FLOTANTE */
+
+    .control-musica {
+        right: 18px;
+        bottom: 18px;
+
+        width: 52px;
+        height: 52px;
+    }
+
+
+    /* PORTADA */
+
+    .hero {
+        min-height: 760px;
+        background-position: center bottom;
+    }
+
+    .hero__contenido {
+        width: min(92%, 560px);
+        margin-top: 140px;
+    }
+
+    .hero__frase {
+        margin-bottom: 26px;
+        font-size: 21px;
+    }
+
+    .hero__titulo {
+        font-size: 94px;
+    }
+
+    .reproductor {
+        width: min(90%, 330px);
+        margin-top: 62px;
+    }
+
+    .reproductor__boton--principal {
+        width: 64px;
+        height: 64px;
+    }
+
+    .reproductor__cancion {
+        font-size: 17px;
+    }
+
+
+    /* PRESENTACIÓN */
+
+    .presentacion {
+        height: 1050px;
+        overflow: hidden;
+    }
+
+    .presentacion__contenido {
+        width: 100%;
+        margin-top: -120px;
+        padding: 0 18px;
+    }
+
+    .presentacion__foto-contenedor {
+        width: 260px;
+        height: 360px;
+    }
+
+    .presentacion__nombre {
+        margin-top: 22px;
+        font-size: 72px;
+    }
+
+    .pergamino {
+        width: min(86vw, 445px);
+        margin-top: 90px;
+    }
+
+
+    /* MENSAJE */
+
+    .familia {
+        height: 900px;
+        min-height: 900px;
+        background-position: center top;
+    }
+
+    .familia__contenido {
+        padding: 220px 18px 90px !important;
+    }
+
+    .familia__mensaje {
+        width: min(92%, 590px);
+        padding: 42px 28px;
+    }
+
+    .familia__mensaje-principal {
+        font-size: 56px;
+    }
+
+    .familia__mensaje-secundario {
+        font-size: 15px;
+    }
+
+
+    /* CONTADOR */
+
+    .cuenta-regresiva {
+        min-height: 780px;
+    }
+
+    .cuenta-regresiva__contenido {
+        min-height: 640px;
+        padding: 95px 18px 140px;
+    }
+
+    .cuenta-regresiva__rosa-contenedor {
+        width: 112px;
+        height: 145px;
+    }
+
+    .cuenta-regresiva__frase {
+        margin-bottom: 36px;
+        font-size: 17px;
+    }
+
+    .contador {
+        width: min(100%, 700px);
+        gap: 7px;
+    }
+
+    .contador__item {
+        min-width: 82px;
+    }
+
+    .contador__valor {
+        min-width: 80px;
+        font-size: 43px;
+    }
+
+    .contador__etiqueta {
+        margin-top: 12px;
+        font-size: 11px;
+    }
+
+    .contador__puntos {
+        font-size: 36px;
+    }
+
+
+    /* CALENDARIO */
+
+    .recuerdos-fecha__contenido {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+
+        grid-template-columns:
+            minmax(340px, 0.95fr)
+            minmax(360px, 1.05fr);
+
+        column-gap: 30px;
+    }
+
+    .recuerdos-fecha__fotos {
+        height: 520px;
+    }
+
+    .foto-recuerdo--principal {
+        width: 285px;
+        height: 445px;
+    }
+
+    .foto-recuerdo--familia {
+        width: 255px;
+    }
+
+
+    /* HORA Y LUGAR */
+
+    .seccion-5 {
+        min-height: 850px;
+        padding: 40px 15px;
+    }
+
+    .s5-contenedor {
+        width: min(72vw, 520px);
+    }
+
+    .s5-contenido {
+        top: 39%;
+    }
+
+
+    /* FRASE */
+
+    .seccion-7 {
+        min-height: 330px;
+    }
+
+    .s7-contenido {
+        width: min(90%, 680px);
+        padding: 22px 32px;
+    }
+
+
+    /* CARRUSEL */
+
+    .seccion-8 {
+        min-height: 850px;
+        padding: 55px 20px;
+    }
+
+    .s8-titulo {
+        font-size: 3.7rem;
+    }
+
+    .s8-linea {
+        width: 80px;
+    }
+
+    .s8-carrusel {
+        width: 100%;
+        height: 510px;
+    }
+
+    .s8-escenario {
+        width: 700px;
+    }
+
+    .s8-tarjeta {
+        width: 270px;
+        height: 400px;
+    }
+
+    .s8-tarjeta.s8-anterior {
+        transform:
+            translate(-50%, -50%)
+            translateX(-225px)
+            rotateY(13deg)
+            scale(0.76);
+    }
+
+    .s8-tarjeta.s8-siguiente {
+        transform:
+            translate(-50%, -50%)
+            translateX(225px)
+            rotateY(-13deg)
+            scale(0.76);
+    }
+
+    .s8-flecha {
+        width: 50px;
+        height: 50px;
+        font-size: 2.7rem;
+    }
+
+
+    /* TRES PERGAMINOS */
+
+    .seccion-9 {
+        min-height: auto;
+        padding: 70px 25px;
+    }
+
+    .s9-contenedor {
+        width: min(100%, 760px);
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(280px, 340px));
+
+        gap: 38px 30px;
+    }
+
+    .s9-pergamino {
+        width: 100%;
+        max-width: 340px;
+        justify-self: center;
+    }
+
+    .s9-pergamino-recomendaciones {
+        transform: none;
+    }
+
+    .s9-pergamino-vestimenta {
+        grid-column: 1 / -1;
+    }
+
+    .s9-pergamino-recomendaciones:hover,
+    .s9-pergamino:hover {
+        transform: translateY(-8px) scale(1.02);
+    }
+
+
+    /* CONFIRMACIÓN Y CIERRE */
+
+    .seccion-10 {
+        padding: 48px 18px 22px;
+    }
+
+    .seccion-cierre {
+        padding: 20px 18px 48px;
+    }
+
+    .s10-titulo {
+        font-size: 3.3rem;
+    }
+
+    .cierre-nombre {
+        font-size: 4rem;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 640px) {
+
+    /* GENERALES */
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .animar-scroll {
+        transform: translateY(20px);
+        transition-duration: 0.7s;
+    }
+
+    .barra-progreso {
+        height: 2px;
+    }
+
+    .control-musica {
+        right: 14px;
+        bottom: 14px;
+
+        width: 48px;
+        height: 48px;
+    }
+
+
+    /* PORTADA */
+
+    .hero {
+        height: 100svh;
+        min-height: 650px;
+
+        background-position: center bottom;
+    }
+
+    .hero__contenido {
+        width: 100%;
+        margin-top: clamp(105px, 18vh, 145px);
+        padding: 0 14px;
+    }
+
+    .hero__frase {
+        margin-bottom: 23px;
+
+        font-size: clamp(15px, 4.5vw, 19px);
+        letter-spacing: 0.3px;
+    }
+
+    .hero__titulo {
+        font-size: clamp(67px, 22vw, 92px);
+        line-height: 0.8;
+    }
+
+    .hero__xv {
+        font-size: 0.52em;
+    }
+
+    .reproductor {
+        width: min(88vw, 310px);
+        margin-top: 54px;
+    }
+
+    .reproductor__controles {
+        gap: 15px;
+    }
+
+    .reproductor__boton--principal {
+        width: 58px;
+        height: 58px;
+        padding: 15px;
+    }
+
+    .reproductor__boton--pequeno {
+        width: 20px;
+        height: 20px;
+    }
+
+    .reproductor__cancion {
+        margin-top: 13px;
+        font-size: 14px;
+    }
+
+
+    /* PRESENTACIÓN */
+
+    .presentacion {
+        height: auto;
+        min-height: 1080px;
+
+        overflow: hidden;
+        background-position: center top;
+    }
+
+    .presentacion__contenido {
+        width: 100%;
+        margin-top: -55px;
+        padding: 0 10px 70px;
+    }
+
+    .presentacion__foto-contenedor {
+        width: min(62vw, 245px);
+        height: min(86vw, 340px);
+    }
+
+    .presentacion__nombre {
+        margin-top: 20px;
+
+        font-size: clamp(58px, 18vw, 76px);
+        line-height: 0.76;
+    }
+
+    .presentacion__nombre span:last-child {
+        margin-top: 10px;
+    }
+
+    .pergamino {
+        width: min(96vw, 430px);
+        margin-top: 75px;
+    }
+
+    .pergamino__texto {
+        top: 20%;
+        width: 68%;
+        height: 60%;
+    }
+
+    .pergamino__introduccion,
+    .pergamino__introduccion--padrinos {
+        font-size: clamp(9px, 2.8vw, 12px);
+        line-height: 1.32;
+    }
+
+    .pergamino__nombres p {
+        font-size: clamp(25px, 8vw, 35px);
+    }
+
+    .pergamino__nombres--padrinos p {
+        font-size: clamp(22px, 7.2vw, 31px);
+    }
+
+    .pergamino__corona {
+        font-size: 16px;
+    }
+
+    .pergamino__filigrana {
+        margin-bottom: 7px;
+    }
+
+    .pergamino__nombres {
+        margin-top: 9px;
+    }
+
+    .pergamino__separador {
+        margin: 10px 0 7px;
+    }
+
+
+    /* MENSAJE FAMILIA */
+
+    .familia {
+        height: 740px;
+        min-height: 740px;
+
+        background-position: center top;
+    }
+
+    .familia__empalme {
+        display: none;
+    }
+
+    .familia__contenido {
+        padding: 170px 15px 70px !important;
+    }
+
+    .familia__mensaje {
+        width: 100%;
+        padding: 35px 15px;
+    }
+
+    .familia__mensaje-principal {
+        max-width: 360px;
+        font-size: clamp(43px, 13vw, 58px);
+        line-height: 1.08;
+    }
+
+    .familia__mensaje-secundario {
+        margin-top: 14px;
+        font-size: clamp(11px, 3.3vw, 14px);
+    }
+
+    .familia__detalle {
+        width: min(75%, 250px);
+    }
+
+
+    /* CONTADOR */
+
+    .cuenta-regresiva {
+        min-height: 670px;
+        background-position: center top;
+    }
+
+    .cuenta-regresiva__contenido {
+        width: 100%;
+        min-height: 590px;
+
+        padding: 72px 12px 110px;
+    }
+
+    .cuenta-regresiva__rosa-contenedor {
+        width: 90px;
+        height: 120px;
+        margin-bottom: 17px;
+    }
+
+    .cuenta-regresiva__halo {
+        width: 115px;
+        height: 115px;
+    }
+
+    .cuenta-regresiva__frase {
+        max-width: 330px;
+        margin-bottom: 30px;
+
+        font-size: clamp(13px, 3.8vw, 16px);
+        line-height: 1.5;
+    }
+
+    .contador {
+        width: 100%;
+        gap: 3px;
+    }
+
+    .contador__item {
+        min-width: 0;
+        width: 22%;
+    }
+
+    .contador__valor {
+        min-width: 0;
+
+        font-size: clamp(28px, 9vw, 41px);
+    }
+
+    .contador__etiqueta {
+        margin-top: 9px;
+
+        font-size: clamp(7px, 2.3vw, 10px);
+        letter-spacing: 0;
+    }
+
+    .contador__puntos {
+        width: 4%;
+        margin-top: 1px;
+
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+
+    /* CALENDARIO: FOTOS ARRIBA Y CALENDARIO ABAJO */
+
+    .recuerdos-fecha {
+        min-height: auto;
+    }
+
+    .recuerdos-fecha__contenido {
+        width: 100%;
+        padding: 55px 15px 70px;
+
+        display: flex;
+        flex-direction: column;
+
+        row-gap: 50px;
+    }
+
+    .recuerdos-fecha__fotos {
+        width: min(100%, 360px);
+        height: 510px;
+    }
+
+    .foto-recuerdo--principal {
+        top: 0;
+        left: 0;
+
+        width: 77%;
+        height: 410px;
+    }
+
+    .foto-recuerdo--familia {
+        right: 0;
+        bottom: 0;
+
+        width: 70%;
+    }
+
+    .calendario-evento {
+        width: 100%;
+    }
+
+    .calendario-evento__save {
+        font-size: clamp(47px, 14vw, 60px);
+    }
+
+    .calendario-evento__fecha {
+        margin-top: 12px;
+
+        font-size: clamp(10px, 3vw, 13px);
+        letter-spacing: 0.8px;
+    }
+
+    .calendario-evento__adorno {
+        margin: 17px 0 12px;
+    }
+
+    .calendario-evento__imagen,
+    .calendario-evento__leyenda {
+        width: min(100%, 410px);
+    }
+
+    .calendario-evento__dato {
+        gap: 10px;
+    }
+
+    .calendario-evento__dato p {
+        font-size: 14px;
+    }
+
+
+    /* HORA Y LUGAR */
+
+    .seccion-5 {
+        min-height: 720px;
+        padding: 30px 8px;
+        background-position: center;
+    }
+
+    .seccion-5::after {
+        width: 390px;
+        height: 390px;
+    }
+
+    .s5-contenedor {
+        width: min(96vw, 430px);
+    }
+
+    .s5-contenido {
+        top: 33%;
+        left: 17%;
+        right: 17%;
+    }
+
+    .s5-titulo {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .s5-hora {
+        margin-top: 13px;
+
+        font-size: clamp(1.15rem, 5.3vw, 1.45rem);
+    }
+
+    .s5-info {
+        margin-top: 11px;
+    }
+
+    .s5-etiqueta {
+        font-size: clamp(0.7rem, 3vw, 0.83rem);
+    }
+
+    .s5-lugar {
+        font-size: clamp(0.95rem, 4vw, 1.08rem);
+    }
+
+    .s5-direccion {
+        margin-top: 5px;
+
+        font-size: clamp(0.78rem, 3.4vw, 0.92rem);
+    }
+
+    /*
+       Tu PNG de botón tiene mucho espacio transparente.
+       Conservamos sus proporciones visuales.
+    */
+    .s5-boton-mapa {
+        width: 185px;
+        height: 145px;
+
+        margin-top: -45px;
+    }
+
+    .s5-boton-texto {
+        font-size: 0.68rem;
+    }
+
+
+    /* FRASE */
+
+    .seccion-7 {
+        min-height: auto;
+        padding: 45px 12px;
+    }
+
+    .s7-contenido {
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .s7-rosa {
+        width: 72px;
+        margin-bottom: 13px;
+    }
+
+    .s7-frase {
+        max-width: 430px;
+
+        font-size: clamp(1rem, 4.5vw, 1.22rem);
+        font-weight: 500;
+        line-height: 1.35;
+    }
+
+
+    /* CARRUSEL */
+
+    .seccion-8 {
+        min-height: 740px;
+        padding: 50px 8px 45px;
+    }
+
+    .s8-encabezado {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .s8-linea {
+        width: 38px;
+    }
+
+    .s8-titulo {
+        font-size: clamp(2.8rem, 14vw, 3.8rem);
+    }
+
+    .s8-subtitulo {
+        max-width: 290px;
+        margin: 7px 0 25px;
+
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+
+    .s8-carrusel {
+        width: 100%;
+        height: 450px;
+    }
+
+    .s8-escenario {
+        width: 100%;
+        height: 100%;
+    }
+
+    .s8-tarjeta {
+        width: min(68vw, 260px);
+        height: min(100vw, 380px);
+    }
+
+    .s8-tarjeta.s8-activa {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    /*
+       En celular mostramos las laterales apenas visibles,
+       evitando que se salgan demasiado.
+    */
+    .s8-tarjeta.s8-anterior {
+        opacity: 0.28;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-54vw)
+            scale(0.70);
+
+        pointer-events: none;
+    }
+
+    .s8-tarjeta.s8-siguiente {
+        opacity: 0.28;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(54vw)
+            scale(0.70);
+
+        pointer-events: none;
+    }
+
+    .s8-marco-foto {
+        padding: 7px;
+    }
+
+    .s8-marco-foto::after {
+        inset: 11px;
+    }
+
+    .s8-flecha {
+        top: 50%;
+
+        width: 43px;
+        height: 43px;
+
+        padding-bottom: 5px;
+
+        font-size: 2.35rem;
+
+        background: rgba(255, 247, 219, 0.82);
+    }
+
+    .s8-flecha-anterior {
+        left: 6px;
+    }
+
+    .s8-flecha-siguiente {
+        right: 6px;
+    }
+
+    .s8-indicadores {
+        margin-top: 10px;
+    }
+
+
+    /* PERGAMINOS APILADOS */
+
+    .seccion-9 {
+        min-height: auto;
+        padding: 55px 12px 65px;
+        background-position: center top;
+    }
+
+    .s9-contenedor {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 34px;
+    }
+
+    .s9-pergamino,
+    .s9-pergamino-recomendaciones {
+        width: min(92vw, 370px);
+        max-width: 370px;
+
+        transform: none;
+    }
+
+    .s9-pergamino:hover,
+    .s9-pergamino-recomendaciones:hover {
+        transform: none;
+    }
+
+    .s9-texto-regalos {
+        top: 25%;
+    }
+
+    .s9-texto-recomendaciones {
+        top: 21%;
+    }
+
+    .s9-texto-vestimenta {
+        top: 17%;
+    }
+
+    .s9-titulo {
+        font-size: clamp(2rem, 10vw, 2.65rem);
+    }
+
+    .s9-titulo-vestimenta {
+        font-size: clamp(1.85rem, 8.7vw, 2.4rem);
+    }
+
+    .s9-formal {
+        font-size: clamp(2rem, 9vw, 2.5rem);
+    }
+
+    .s9-parrafo {
+        max-width: 245px;
+
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
+    }
+
+    .s9-lista {
+        max-width: 250px;
+
+        font-size: clamp(0.95rem, 4.2vw, 1.13rem);
+    }
+
+
+    /* CONFIRMAR ASISTENCIA */
+
+    .seccion-10 {
+        padding: 45px 12px 18px;
+    }
+
+    .s10-contenido {
+        width: 100%;
+    }
+
+    .s10-rosa {
+        width: 68px;
+    }
+
+    .s10-titulo {
+        font-size: clamp(2.7rem, 13vw, 3.6rem);
+    }
+
+    .s10-indicacion {
+        margin-top: 8px;
+
+        font-size: 1.05rem;
+    }
+
+    .s10-boton {
+        width: 195px;
+        height: 125px;
+
+        margin-top: -34px;
+    }
+
+    .s10-boton-texto {
+        font-size: 0.72rem;
+    }
+
+    .s10-frase {
+        margin-top: -38px;
+
+        font-size: 1.08rem;
+    }
+
+
+    /* CIERRE */
+
+    .seccion-cierre {
+        padding: 20px 12px 45px;
+    }
+
+    .cierre-contenido {
+        width: 100%;
+    }
+
+    .cierre-rosa {
+        width: 62px;
+    }
+
+    .cierre-frase {
+        max-width: 320px;
+
+        font-size: 1.16rem;
+    }
+
+    .cierre-despedida {
+        margin-top: 15px;
+
+        font-size: 1rem;
+    }
+
+    .cierre-nombre {
+        font-size: clamp(3rem, 15vw, 4rem);
+    }
+
+
+    /* CRÉDITO */
+
+    .credito-final {
+        min-height: 90px;
+        padding: 22px 65px 22px 15px;
+    }
+
+    .credito-final p {
+        font-size: 0.83rem;
+        line-height: 1.4;
+    }
+}
+
+
+/* =====================================================
+   CELULARES MUY PEQUEÑOS
+===================================================== */
+
+@media (max-width: 390px) {
+
+    .hero__contenido {
+        margin-top: 105px;
+    }
+
+    .hero__titulo {
+        font-size: 66px;
+    }
+
+    .reproductor {
+        margin-top: 47px;
+    }
+
+
+    .presentacion {
+        min-height: 1010px;
+    }
+
+    .presentacion__foto-contenedor {
+        width: 220px;
+        height: 305px;
+    }
+
+    .presentacion__nombre {
+        font-size: 58px;
+    }
+
+    .pergamino {
+        width: 98vw;
+    }
+
+
+    .familia {
+        height: 680px;
+        min-height: 680px;
+    }
+
+    .familia__mensaje-principal {
+        font-size: 42px;
+    }
+
+
+    .cuenta-regresiva {
+        min-height: 630px;
+    }
+
+    .cuenta-regresiva__contenido {
+        padding-top: 62px;
+    }
+
+    .contador__valor {
+        font-size: 27px;
+    }
+
+    .contador__etiqueta {
+        font-size: 7px;
+    }
+
+
+    .recuerdos-fecha__fotos {
+        height: 465px;
+    }
+
+    .foto-recuerdo--principal {
+        height: 370px;
+    }
+
+
+    .s5-contenedor {
+        width: 100vw;
+    }
+
+    .s5-titulo {
+        font-size: 2rem;
+    }
+
+    .s5-boton-mapa {
+        width: 170px;
+        height: 135px;
+    }
+
+
+    .s8-tarjeta {
+        width: 235px;
+        height: 345px;
+    }
+
+    .s8-carrusel {
+        height: 420px;
+    }
+
+
+    .s9-pergamino,
+    .s9-pergamino-recomendaciones {
+        width: min(96vw, 350px);
+    }
+
+
+    .control-musica {
+        width: 45px;
+        height: 45px;
+
+        right: 11px;
+        bottom: 11px;
+    }
+}
+
+
+/* =====================================================
+   CELULAR HORIZONTAL
+===================================================== */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    .hero {
+        min-height: 610px;
+    }
+
+    .hero__contenido {
+        margin-top: 70px;
+    }
+
+    .hero__titulo {
+        font-size: 78px;
+    }
+
+    .reproductor {
+        margin-top: 40px;
+    }
+
+
+    .control-musica {
+        right: 12px;
+        bottom: 12px;
+    }
+
+
+    .seccion-5 {
+        min-height: 680px;
+    }
+
+    .s5-contenedor {
+        width: min(48vw, 430px);
+    }
+
+
+    .seccion-8 {
+        min-height: 690px;
+    }
+
+    .s8-tarjeta {
+        width: 245px;
+        height: 355px;
+    }
+
+
+    .s9-contenedor {
+        grid-template-columns: repeat(3, minmax(220px, 280px));
+    }
+
+    .s9-pergamino-vestimenta {
+        grid-column: auto;
+    }
+}
+/* =====================================================
+   CORRECCIÓN DEFINITIVA PARA CELULAR
+===================================================== */
+
+@media screen and (max-width: 900px) {
+
+    /* Bloquear completamente el desplazamiento lateral */
+
+    html {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip !important;
+    }
+
+    body {
+        position: relative;
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow-x: clip !important;
+    }
+
+    body > section,
+    body > footer {
+        position: relative;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        overflow: hidden !important;
+    }
+
+    img,
+    svg {
+        max-width: 100%;
+    }
+
+
+    /* =================================================
+       PORTADA
+    ================================================= */
+
+    .hero {
+        width: 100% !important;
+        min-height: 700px;
+
+        background-position: center bottom;
+    }
+
+    .hero__contenido {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        padding: 0 14px;
+    }
+
+    .hero__titulo {
+        max-width: 100%;
+
+        font-size: clamp(65px, 20vw, 92px);
+        white-space: nowrap;
+    }
+
+    .reproductor {
+        width: min(88%, 320px);
+        max-width: 100%;
+    }
+
+
+    /* =================================================
+       PRESENTACIÓN
+    ================================================= */
+
+    .presentacion {
+        width: 100% !important;
+        height: auto;
+        min-height: 1080px;
+    }
+
+    .presentacion__contenido {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .pergamino {
+        width: min(96%, 430px) !important;
+        max-width: 96% !important;
+    }
+
+
+    /* =================================================
+       FAMILIA
+    ================================================= */
+
+    .familia {
+        width: 100% !important;
+        min-height: 760px;
+    }
+
+    .familia__contenido {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+
+    /* =================================================
+       CONTADOR: CUATRO BLOQUES VISIBLES
+    ================================================= */
+
+    .cuenta-regresiva {
+        width: 100% !important;
+        min-height: 720px;
+    }
+
+    .cuenta-regresiva__contenido {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .contador {
+        width: 100% !important;
+        max-width: 390px !important;
+
+        display: grid !important;
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr) !important;
+
+        gap: 18px 8px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .contador__puntos {
+        display: none !important;
+    }
+
+    .contador__item {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .contador__valor {
+        width: auto !important;
+        min-width: 0 !important;
+
+        font-size: clamp(32px, 11vw, 46px) !important;
+    }
+
+    .contador__etiqueta {
+        font-size: clamp(9px, 2.8vw, 12px) !important;
+    }
+
+
+    /* =================================================
+       FOTOS ARRIBA Y CALENDARIO ABAJO
+    ================================================= */
+
+    .recuerdos-fecha {
+        width: 100% !important;
+        min-height: auto !important;
+    }
+
+    .recuerdos-fecha__contenido {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+
+        padding: 55px 15px 70px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+        row-gap: 55px !important;
+    }
+
+    .recuerdos-fecha__fotos {
+        flex: none !important;
+
+        width: min(100%, 365px) !important;
+        max-width: 100% !important;
+        height: 520px !important;
+
+        margin: 0 auto !important;
+    }
+
+    .foto-recuerdo--principal {
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 77% !important;
+        height: 415px !important;
+    }
+
+    .foto-recuerdo--familia {
+        right: 0 !important;
+        bottom: 0 !important;
+
+        width: 70% !important;
+    }
+
+    .calendario-evento {
+        flex: none !important;
+
+        width: min(100%, 420px) !important;
+        max-width: 100% !important;
+
+        margin: 0 auto !important;
+    }
+
+    .calendario-evento__imagen,
+    .calendario-evento__leyenda {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .calendario-evento__save {
+        font-size: clamp(48px, 14vw, 62px) !important;
+    }
+
+
+    /* =================================================
+       HORA Y LUGAR
+    ================================================= */
+
+    .seccion-5 {
+        width: 100% !important;
+        min-height: 740px;
+    }
+
+    .s5-contenedor {
+        width: min(94%, 410px) !important;
+        max-width: 94% !important;
+
+        margin: 0 auto !important;
+    }
+
+
+    /* =================================================
+       CARRUSEL
+    ================================================= */
+
+    .seccion-8,
+    .s8-contenido,
+    .s8-carrusel,
+    .s8-escenario {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .s8-carrusel {
+        overflow: hidden !important;
+    }
+
+    .s8-tarjeta {
+        width: min(68vw, 270px) !important;
+        height: min(100vw, 390px) !important;
+    }
+
+    .s8-tarjeta.s8-anterior,
+    .s8-tarjeta.s8-siguiente {
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+
+    /* =================================================
+       PERGAMINOS UNO DEBAJO DE OTRO
+    ================================================= */
+
+    .seccion-9 {
+        width: 100% !important;
+        min-height: auto !important;
+
+        padding: 60px 12px 70px !important;
+    }
+
+    .s9-contenedor {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+
+        gap: 34px !important;
+
+        transform: none !important;
+    }
+
+    .s9-pergamino,
+    .s9-pergamino-regalos,
+    .s9-pergamino-recomendaciones,
+    .s9-pergamino-vestimenta {
+        position: relative !important;
+
+        width: min(90%, 360px) !important;
+        max-width: 360px !important;
+
+        flex: none !important;
+
+        margin: 0 auto !important;
+
+        transform: none !important;
+    }
+
+    .s9-pergamino:hover,
+    .s9-pergamino-recomendaciones:hover {
+        transform: none !important;
+    }
+
+
+    /* =================================================
+       CONFIRMACIÓN Y CIERRE
+    ================================================= */
+
+    .seccion-10,
+    .seccion-cierre,
+    .s10-contenido,
+    .cierre-contenido {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+
+    /* =================================================
+       BOTÓN FLOTANTE
+    ================================================= */
+
+    .control-musica {
+        right: 13px !important;
+        bottom: 13px !important;
+    }
+}
+/* =====================================================
+   AJUSTES MÓVILES FINALES
+===================================================== */
+
+@media screen and (max-width: 640px) {
+
+   .hero {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    min-height: 100svh !important;
+    padding: 0 12px !important;
+}
+
+.hero__contenido {
+    width: 100% !important;
+    max-width: 390px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    transform: translateY(-20px) !important;
+}
+
+.hero__frase,
+.hero__titulo,
+.reproductor {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.hero__titulo {
+    font-size: clamp(62px, 19vw, 78px) !important;
+    line-height: 0.85 !important;
+}
+
+.reproductor {
+    width: min(88vw, 310px) !important;
+}
+    /* =================================================
+       2. FOTO DE DANIELA SIN CORTARSE
+    ================================================= */
+
+    .presentacion {
+        height: auto !important;
+        min-height: 1450px !important;
+
+        padding-bottom: 70px !important;
+
+        overflow: hidden !important;
+    }
+
+    .presentacion__contenido {
+        position: relative !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-top: -15px !important;
+
+        padding:
+            0
+            12px
+            70px !important;
+    }
+
+    .presentacion__foto-contenedor {
+        width: min(66vw, 255px) !important;
+        height: auto !important;
+
+        aspect-ratio: 315 / 435;
+
+        flex-shrink: 0;
+    }
+
+    .presentacion__foto {
+        width: 100% !important;
+        height: 100% !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+    }
+
+    .presentacion__nombre {
+        margin-top: 24px !important;
+
+        font-size: clamp(58px, 17vw, 72px) !important;
+    }
+
+
+    /* =================================================
+       3. TEXTO DENTRO DEL PERGAMINO
+    ================================================= */
+
+    .pergamino {
+        width: min(97vw, 430px) !important;
+
+        margin-top: 70px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .pergamino__texto {
+        top: 19.5% !important;
+        left: 50% !important;
+
+        width: 67% !important;
+        height: 62% !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    .pergamino__corona {
+        height: 18px !important;
+        font-size: 15px !important;
+    }
+
+    .pergamino__filigrana {
+        margin:
+            1px
+            0
+            6px !important;
+    }
+
+    .pergamino__introduccion,
+    .pergamino__introduccion--padrinos {
+        font-size: clamp(8.2px, 2.45vw, 10.5px) !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.25px !important;
+    }
+
+    .pergamino__nombres {
+        margin-top: 7px !important;
+    }
+
+    .pergamino__nombres p {
+        font-size: clamp(24px, 7.6vw, 32px) !important;
+        line-height: 0.82 !important;
+    }
+
+    .pergamino__separador {
+        margin:
+            8px
+            0
+            6px !important;
+    }
+
+    .pergamino__nombres--padrinos {
+        margin-top: 7px !important;
+    }
+
+    .pergamino__nombres--padrinos p {
+        font-size: clamp(21px, 6.7vw, 28px) !important;
+        line-height: 0.81 !important;
+    }
+
+
+    /* =================================================
+       4. UNIÓN ENTRE SECCIÓN 2 Y 3
+    ================================================= */
+
+    .presentacion {
+        margin-bottom: -2px !important;
+    }
+
+    .familia {
+        height: 740px !important;
+        min-height: 740px !important;
+
+        margin-top: -2px !important;
+
+        background-position: center top !important;
+    }
+
+    .familia__empalme {
+        display: none !important;
+    }
+
+    .familia__contenido {
+        inset: 0 !important;
+
+        padding:
+            130px
+            14px
+            55px !important;
+    }
+
+    .familia__mensaje {
+        width: min(100%, 370px) !important;
+
+        padding:
+            32px
+            14px !important;
+    }
+
+    .familia__mensaje-principal {
+        max-width: 350px;
+
+        font-size: clamp(41px, 12vw, 52px) !important;
+        line-height: 1.05 !important;
+    }
+
+    .familia__mensaje-secundario {
+        font-size: clamp(10px, 3vw, 13px) !important;
+    }
+
+
+    /* =================================================
+       5. UNIÓN ENTRE SECCIÓN 3 Y CONTADOR
+    ================================================= */
+
+    .familia {
+        margin-bottom: -2px !important;
+    }
+
+    .cuenta-regresiva {
+        min-height: 610px !important;
+
+        margin-top: -2px !important;
+
+        background-position: center top !important;
+    }
+
+    .cuenta-regresiva__contenido {
+        width: 100% !important;
+        min-height: auto !important;
+
+        padding:
+            52px
+            12px
+            48px !important;
+    }
+
+    .cuenta-regresiva__rosa-contenedor {
+        width: 78px !important;
+        height: 108px !important;
+
+        margin-bottom: 13px !important;
+    }
+
+    .cuenta-regresiva__frase {
+        max-width: 315px !important;
+
+        margin-bottom: 24px !important;
+
+        font-size: clamp(12px, 3.5vw, 14px) !important;
+    }
+
+    .contador {
+        max-width: 320px !important;
+
+        gap:
+            14px
+            22px !important;
+    }
+
+    .contador__valor {
+        font-size: clamp(31px, 10vw, 41px) !important;
+    }
+
+
+    /* =================================================
+       6. QUITAR ESPACIO BLANCO ANTES DEL CALENDARIO
+    ================================================= */
+
+    .recuerdos-fecha {
+        min-height: auto !important;
+
+        margin-top: -2px !important;
+    }
+
+    .recuerdos-fecha__contenido {
+        min-height: auto !important;
+
+        padding:
+            28px
+            13px
+            60px !important;
+
+        row-gap: 42px !important;
+    }
+
+    .recuerdos-fecha__fotos {
+        width: min(100%, 360px) !important;
+        height: 500px !important;
+
+        margin-top: 0 !important;
+    }
+
+    .foto-recuerdo--principal {
+        width: 76% !important;
+        height: 400px !important;
+    }
+
+    .foto-recuerdo--familia {
+        width: 69% !important;
+    }
+
+    .calendario-evento {
+        margin-top: 0 !important;
+    }
+
+
+    /* =================================================
+       UNIONES SIN LÍNEAS
+    ================================================= */
+
+    .hero,
+    .presentacion,
+    .familia,
+    .cuenta-regresiva,
+    .recuerdos-fecha {
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+}
+/* =====================================================
+   FONDO SECCIÓN 2 — MISMA ESCALA QUE EL CELULAR
+===================================================== */
+
+@media screen and (max-width: 640px) {
+
+    .presentacion {
+        background-size: 100% auto !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+
+        background-color: #2b150b !important;
+
+        margin-top: -1px !important;
+        padding-top: 55px !important;
+    }
+
+    .presentacion::before {
+        content: none !important;
+        display: none !important;
+    }
+
+    .presentacion__contenido {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+/* =====================================================
+   FONDO CONTINUO REAL — PRIMERAS TRES SECCIONES
+   SOLO CELULAR
+===================================================== */
+
+@media screen and (max-width: 640px) {
+
+    /*
+       Un solo fondo para portada, presentación y familia.
+       Se escala una sola vez y únicamente se recortan
+       los laterales.
+    */
+    .palacio-continuo {
+        position: relative;
+
+        width: 100%;
+        max-width: 100%;
+
+        overflow: hidden;
+
+        background-image:
+            url("imagenes/total.png");
+
+        background-repeat: no-repeat;
+        background-position: center top;
+
+        /*
+           Mantiene la proporción.
+           La altura ocupa las tres secciones completas
+           y el exceso se corta solo en los lados.
+        */
+        background-size: auto 100%;
+
+        background-color: #1c0b03;
+    }
+
+
+    /* Quitamos los tres fondos independientes */
+
+    .palacio-continuo > .hero,
+    .palacio-continuo > .presentacion,
+    .palacio-continuo > .familia {
+        background-image: none !important;
+        background-color: transparent !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+
+    /* Elimina los intentos anteriores de unión */
+
+    .presentacion::before {
+        content: none !important;
+        display: none !important;
+    }
+
+    .familia__empalme {
+        display: none !important;
+    }
+
+
+    /* ================================================
+       PORTADA
+    ================================================ */
+
+    .hero {
+        min-height: 100svh !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .hero__contenido {
+        width: 100% !important;
+        max-width: 390px !important;
+
+        margin: 0 auto !important;
+        padding: 0 12px !important;
+
+        transform: translateY(-20px) !important;
+    }
+
+
+    /* ================================================
+       FOTO, NOMBRE Y PERGAMINO
+    ================================================ */
+
+    .presentacion {
+        height: auto !important;
+        min-height: 1450px !important;
+
+        padding: 0 12px 70px !important;
+
+        overflow: visible !important;
+    }
+
+    .presentacion__contenido {
+        position: relative !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 auto !important;
+        padding-top: 70px !important;
+    }
+
+    .presentacion__foto-contenedor {
+        width: min(66vw, 255px) !important;
+        height: auto !important;
+
+        aspect-ratio: 315 / 435;
+
+        margin: 0 auto !important;
+
+        flex-shrink: 0;
+    }
+
+    .presentacion__foto {
+        width: 100% !important;
+        height: 100% !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+    }
+
+    .presentacion__nombre {
+        margin-top: 25px !important;
+    }
+
+
+    /* ================================================
+       SECCIÓN DEL NUEVO CAPÍTULO
+    ================================================ */
+
+    .familia {
+        height: 740px !important;
+        min-height: 740px !important;
+
+        margin-top: -2px !important;
+    }
+
+    .familia__contenido {
+        inset: 0 !important;
+
+        padding:
+            130px
+            14px
+            55px !important;
+    }
+}
+
+/* =====================================================
+   FONDO CONTINUO REAL — SECCIONES 1, 2 Y 3
+===================================================== */
+
+/* En computadora no aparece esta imagen adicional */
+.fondo-total__imagen {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+
+    #fondoTotal {
+        position: relative;
+
+        width: 100%;
+        max-width: 100%;
+
+        overflow: hidden;
+
+        background: #1c0b03 !important;
+    }
+
+    /* Desactiva cualquier fondo creado anteriormente */
+    #fondoTotal::before,
+    #fondoTotal::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    /*
+       Esta es la única imagen de fondo.
+       Se calcula una sola vez para las tres secciones.
+    */
+    #fondoTotal > .fondo-total__imagen {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        z-index: 0;
+
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center top;
+
+        pointer-events: none;
+        user-select: none;
+    }
+
+    /*
+       Apaga completamente los fondos individuales
+       de portada, presentación y familia.
+    */
+    #fondoTotal > .hero,
+    #fondoTotal > .presentacion,
+    #fondoTotal > .familia {
+        position: relative;
+        z-index: 1;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+
+        background: transparent !important;
+        background-image: none !important;
+        background-color: transparent !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Elimina uniones artificiales anteriores */
+    #fondoTotal .presentacion::before,
+    #fondoTotal .presentacion::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    #fondoTotal .familia__empalme {
+        display: none !important;
+    }
+
+    /*
+       Mantiene todos los textos, fotos y pergaminos
+       por encima de total.png.
+    */
+    #fondoTotal .hero__contenido,
+    #fondoTotal .presentacion__contenido,
+    #fondoTotal .familia__contenido,
+    #fondoTotal .particulas {
+        z-index: 5;
+    }
+}
+/* =====================================================
+   SOLUCIÓN DEFINITIVA DEL FONDO CONTINUO EN CELULAR
+===================================================== */
+
+@media screen and (max-width: 640px) {
+
+    #fondoTotal {
+        position: relative !important;
+        isolation: isolate;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        overflow: hidden !important;
+
+        background-image:
+            url("imagenes/hero/total.png") !important;
+
+        background-repeat: no-repeat !important;
+        background-position: center top !important;
+
+        /*
+           Usa total.png una sola vez.
+           Conserva su proporción y recorta solamente
+           los laterales necesarios.
+        */
+        background-size: cover !important;
+
+        background-color: #1c0b03 !important;
+    }
+
+    /* Elimina los tres fondos separados */
+    #fondoTotal > .hero,
+    #fondoTotal > .presentacion,
+    #fondoTotal > .familia {
+        position: relative !important;
+        z-index: 1 !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+
+        background: transparent !important;
+        background-image: none !important;
+        background-color: transparent !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Elimina todas las franjas y empalmes anteriores */
+    #fondoTotal .presentacion::before,
+    #fondoTotal .presentacion::after {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+    }
+
+    #fondoTotal .familia__empalme {
+        display: none !important;
+        background: none !important;
+    }
+
+    /* Mantiene el contenido sobre total.png */
+    #fondoTotal .hero__contenido,
+    #fondoTotal .presentacion__contenido,
+    #fondoTotal .familia__contenido,
+    #fondoTotal .particulas,
+    #fondoTotal .hero__capa,
+    #fondoTotal .presentacion__capa,
+    #fondoTotal .familia__capa {
+        position: relative;
+        z-index: 5;
+    }
+}
+/* =====================================================
+   ACABADO ELEGANTE — SECCIÓN FAMILIA
+===================================================== */
+
+/*
+   15 AÑOS
+   Bloque independiente: no modifica el monograma,
+   el fondo ni la frase de esta sección.
+*/
+
+.familia__quince {
+    transform: translateY(1px);
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    z-index: 6;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    white-space: nowrap;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.familia__quince-numero {
+    display: block;
+
+    font-family: "Cinzel Decorative", Georgia, serif;
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 0.88;
+
+    color: #f5d98e;
+
+    background: linear-gradient(
+        180deg,
+        #fff5c8 0%,
+        #efd080 45%,
+        #b87929 78%,
+        #f4d890 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(0 2px 2px rgba(50, 18, 3, 0.88))
+        drop-shadow(0 0 9px rgba(240, 198, 106, 0.22));
+}
+
+.familia__quince-texto {
+    display: block;
+
+    margin-top: 8px;
+    padding-left: 0.34em;
+
+    font-family: "Cinzel Decorative", Georgia, serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.34em;
+
+    color: #e6c576;
+
+    text-shadow:
+        0 2px 3px rgba(48, 16, 2, 0.88),
+        0 0 7px rgba(239, 198, 105, 0.20);
+}
+
+@media screen and (max-width: 640px) {
+
+    .familia__quince {
+        top: 38.5%;
+    }
+
+    .familia__quince-numero {
+        font-size: 48px;
+    }
+
+    .familia__quince-texto {
+        margin-top: 7px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    /* Oscurecimiento cálido, sin volverlo negro */
+    .familia__capa {
+        background:
+            radial-gradient(
+                ellipse at 50% 53%,
+                rgba(255, 214, 132, 0.219) 0%,
+                rgba(74, 32, 12, 0.10) 42%,
+                rgba(20, 7, 2, 0.42) 100%
+            ),
+            linear-gradient(
+                to bottom,
+                rgba(30, 10, 3, 0.26) 0%,
+                rgba(39, 16, 6, 0.18) 48%,
+                rgba(20, 7, 2, 0.514) 100%
+            ) !important;
+    }
+
+@media screen and (max-width: 640px) {
+
+/* =====================================================
+   MONOGRAMA ELEGANTE — SECCIÓN FAMILIA
+===================================================== */
+
+.familia {
+    position: relative;
+}
+
+.familia__monograma {
+    position: absolute;
+    left: 50%;
+    top: 31%;
+    z-index: 4;
+
+    transform: translate(-50%, -50%);
+
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(88px, 10vw, 130px);
+    line-height: 1;
+    white-space: nowrap;
+
+    color: rgba(226, 188, 108, 0.26);
+
+    text-shadow:
+        0 0 12px rgba(214, 171, 92, 0.12),
+        0 2px 10px rgba(25, 8, 2, 0.20);
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.familia__monograma::before,
+.familia__monograma::after {
+    content: "";
+
+    position: absolute;
+    top: 56%;
+    width: 72px;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(224, 187, 107, 0.45),
+        transparent
+    );
+}
+
+.familia__monograma::before {
+    right: calc(100% + 18px);
+}
+
+.familia__monograma::after {
+    left: calc(100% + 18px);
+}
+@media screen and (max-width: 640px) {
+
+    .familia__monograma {
+        top: 53%;
+        font-size: clamp(74px, 22vw, 96px);
+        color: rgba(226, 188, 108, 0.30);
+    }
+
+    .familia__monograma::before,
+    .familia__monograma::after {
+        width: 52px;
+    }
+}
+
+/* ROSA EN EL ESPACIO BEIGE DEL CONTADOR */
+.cuenta-regresiva__rosa-inferior {
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    z-index: 5;
+
+    display: block;
+    width: 25px;
+    height: auto;
+
+    transform: translateX(-50%);
+
+    filter:
+        drop-shadow(0 7px 8px rgba(73, 34, 10, 0.34))
+        drop-shadow(0 0 11px rgba(218, 165, 72, 0.18));
+
+    pointer-events: none;
+}
+
+@media screen and (max-width: 640px) {
+    .cuenta-regresiva__rosa-inferior {
+        bottom: -170px;
+        width: 100px;
+    }
+}
+/* AJUSTE FINAL EN CELULAR */
+@media screen and (max-width: 640px) {
+
+    /* Subir XV AÑOS sin mover el DF */
+    .familia .familia__quince {
+        top: 15% !important;
+    }
+
+    /* Agrandar XV */
+    .familia .familia__quince-numero {
+        font-size: 125px !important;
+    }
+
+    /* Agrandar AÑOS */
+    .familia .familia__quince-texto {
+        font-size: 30px !important;
+        margin-top: 7px !important;
+    }
+
+    /* Agrandar pergamino de padres y padrinos */
+    .presentacion .pergamino {
+        width: 110vw !important;
+        max-width: none !important;
+    }
+
+    /* Frases pequeñas */
+    .pergamino__introduccion,
+    .pergamino__introduccion--padrinos {
+        font-size: 11.5px !important;
+        line-height: 1.28 !important;
+    }
+
+    /* Nombres de los padres */
+    .pergamino__nombres p {
+        font-size: 36px !important;
+        line-height: 0.88 !important;
+    }
+
+    /* Nombres de los padrinos */
+    .pergamino__nombres--padrinos p {
+        font-size: 31px !important;
+        line-height: 0.86 !important;
+    }
+}
+/* ESPACIO ENTRE LOS NOMBRES */
+@media screen and (max-width: 640px) {
+
+    /* Entre papá y mamá */
+    .pergamino__nombres p + p {
+        margin-top: 10px !important;
+    }
+
+    /* Entre padrino y madrina */
+    .pergamino__nombres--padrinos p + p {
+        margin-top: 15px !important;
+    }
+}
+/* =====================================================
+   SECCIÓN 2 — DOS PERGAMINOS
+===================================================== */
+
+.pergaminos {
+    position: relative;
+    z-index: 8;
+    width: 100%;
+    margin-top: 72px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.pergaminos .pergamino--separado {
+    width: min(430px, 88vw) !important;
+    max-width: 430px !important;
+    margin: 0 !important;
+    flex-shrink: 0;
+}
+
+.pergaminos .pergamino--padrinos {
+    margin-top: 20px !important;
+}
+
+.pergaminos .pergamino__texto--separado {
+    top: 23% !important;
+    width: 66% !important;
+    height: 56% !important;
+}
+
+.pergaminos .pergamino__texto--padrinos {
+    top: 21.5% !important;
+}
+
+.pergaminos .pergamino__introduccion {
+    font-size: 12px !important;
+    line-height: 1.32 !important;
+    letter-spacing: -0.15px !important;
+}
+
+.pergaminos .pergamino__nombres--padres {
+    margin-top: 15px !important;
+}
+
+.pergaminos .pergamino__nombres--padres p {
+    font-size: 37px !important;
+    line-height: 0.94 !important;
+}
+
+.pergaminos .pergamino__nombres--padres p + p {
+    margin-top: 8px !important;
+}
+
+.pergaminos .pergamino__nombres--padrinos {
+    margin-top: 15px !important;
+}
+
+.pergaminos .pergamino__nombres--padrinos p {
+    font-size: 32px !important;
+    line-height: 0.92 !important;
+}
+
+.pergaminos .pergamino__nombres--padrinos p + p {
+    margin-top: 5px !important;
+}
+
+/* Da espacio suficiente para los dos pergaminos */
+.presentacion:has(.pergaminos) {
+    height: auto;
+    min-height: 1510px;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   AJUSTES PARA CELULAR
+===================================================== */
+
+@media screen and (max-width: 640px) {
+
+    .presentacion:has(.pergaminos) {
+        height: auto !important;
+        min-height: 1660px !important;
+        padding-bottom: 45px !important;
+    }
+
+    .pergaminos {
+        margin-top: 58px;
+        gap: 0;
+    }
+
+    .pergaminos .pergamino--separado {
+        width: min(91vw, 390px) !important;
+        max-width: 390px !important;
+    }
+
+    .pergaminos .pergamino--padrinos {
+        margin-top: 30px !important;
+    }
+
+    .pergaminos .pergamino__texto--separado {
+        top: 22.5% !important;
+        width: 68% !important;
+        height: 57% !important;
+    }
+
+    .pergaminos .pergamino__texto--padrinos {
+        top: 20.5% !important;
+    }
+
+    .pergaminos .pergamino__introduccion,
+    .pergaminos .pergamino__introduccion--padrinos {
+        font-size: clamp(1px, 3vw, 15px) !important;
+        line-height: 1.3 !important;
+    }
+
+    .pergaminos .pergamino__nombres--padres {
+        margin-top: 13px !important;
+    }
+
+    .pergaminos .pergamino__nombres--padres p {
+        font-size: clamp(31px, 9vw, 36px) !important;
+        line-height: 0.94 !important;
+    }
+
+    .pergaminos .pergamino__nombres--padres p + p {
+        margin-top: 8px !important;
+    }
+
+    .pergaminos .pergamino__nombres--padrinos {
+        margin-top: 20px !important;
+    }
+
+    .pergaminos .pergamino__nombres--padrinos p {
+        font-size: clamp(27px, 7.9vw, 31px) !important;
+        line-height: 0.92 !important;
+    }
+
+    .pergaminos .pergamino__nombres--padrinos p + p {
+        margin-top: 20px !important;
+    }
+
+    /* Baja XV AÑOS sin mover el DF */
+    .familia .familia__quince {
+        top: 15% !important;
+    }
+
+    /* Baja la frase del capítulo */
+    .familia .familia__mensaje {
+        transform: translateY(42px) !important;
+    }
+}
+
+
+/* CELULARES PEQUEÑOS */
+
+@media screen and (max-width: 380px) {
+
+    .presentacion:has(.pergaminos) {
+        min-height: 1600px !important;
+    }
+
+    .pergaminos .pergamino--separado {
+        width: 94vw !important;
+    }
+
+    .pergaminos .pergamino__introduccion,
+    .pergaminos .pergamino__introduccion--padrinos {
+        font-size: 9.4px !important;
+    }
+
+    .pergaminos .pergamino__nombres--padres p {
+        font-size: 31px !important;
+    }
+
+    .pergaminos .pergamino__nombres--padrinos p {
+        font-size: 27px !important;
+    }
+}
+
+/* ROSA INFERIOR — SOLO COMPUTADORA */
+@media screen and (min-width: 641px) {
+    .cuenta-regresiva__rosa-inferior {
+        position: absolute;
+        left: 50%;
+        bottom: 55px !important;
+        z-index: 5;
+
+        width: 10px !important;
+        height: auto;
+
+        transform: translateX(-50%);
+    }
+}
+/* OCULTAR LA FRASE SOLO EN COMPUTADORA */
+@media screen and (min-width: 641px) {
+    .familia__mensaje {
+        display: none !important;
+    }
+}
+
+/* MOSTRARLA EN CELULAR */
+@media screen and (max-width: 640px) {
+    .familia__mensaje {
+        display: block !important;
+    }
+}
+/* =====================================================
+   AJUSTES FINALES — SOLO CELULAR
+===================================================== */
+
+@media screen and (max-width: 640px) {
+
+    /* 1. Texto pequeño de los pergaminos más grande */
+    .pergaminos .pergamino__introduccion,
+    .pergaminos .pergamino__introduccion--padrinos {
+        font-size: clamp(11.5px, 3.15vw, 13px) !important;
+        line-height: 1.35 !important;
+        letter-spacing: -0.1px !important;
+    }
+
+    /* 2. Rosa encantada del contador más grande */
+    .cuenta-regresiva__rosa-contenedor {
+        width: 115px !important;
+        height: 150px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .cuenta-regresiva__halo {
+        width: 145px !important;
+        height: 145px !important;
+    }
+
+    /* 3. Botón de confirmación más grande */
+    .s10-boton {
+        width: 245px !important;
+        height: 155px !important;
+        margin-top: -42px !important;
+    }
+
+    .s10-boton-texto {
+        font-size: 0.85rem !important;
+    }
+}
+.indicador-deslizar {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+
+   @media screen and (max-width: 640px) {
+
+    /* Oscurece MUY POCO los fondos de las primeras 3 secciones */
+    #fondoTotal {
+        background-image:
+            linear-gradient(
+                rgba(18, 6, 2, 0.35),
+                rgba(18, 6, 2, 0.35)
+            ),
+            url("imagenes/hero/total.png") !important;
+
+        background-size: cover !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+    }
+
+    /* Evita que alguna de las tres secciones quede más oscura */
+    #fondoTotal .hero__capa,
+    #fondoTotal .presentacion__capa,
+    #fondoTotal .familia__capa {
+        background: transparent !important;
+    }
+
+    /* Reduce la separación entre los nombres de los padrinos */
+    .pergaminos .pergamino__nombres--padrinos {
+        margin-top: 9px !important;
+    }
+
+    .pergaminos .pergamino__nombres--padrinos p {
+        margin: 0 !important;
+
+        font-size: clamp(26px, 7.5vw, 30px) !important;
+        line-height: 1.25 !important;
+    }
+
+    .pergaminos .pergamino__nombres--padrinos p + p {
+        margin-top: 4px !important;
+    }
+}
+
+    /* Hace más legibles las letras */
+    .hero__frase,
+    .hero__titulo,
+    .hero__xv,
+    .reproductor__cancion {
+        text-shadow:
+            0 2px 4px rgba(20, 6, 1, 1),
+            0 0 12px rgba(20, 6, 1, 0.95) !important;
+    }
+
+    /* Indicador mágico */
+    .indicador-deslizar {
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        z-index: 8;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 290px;
+
+        transform: translateX(-50%);
+
+        font-family: "Cinzel Decorative", serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+
+        color: #f0cf7b;
+        text-align: center;
+        text-decoration: none;
+
+        text-shadow:
+            0 2px 4px #140601,
+            0 0 10px #140601;
+
+        animation: flotarDesliza 2.5s ease-in-out infinite;
+    }
+
+    .indicador-deslizar__destello {
+        margin-bottom: 3px;
+        font-size: 13px;
+
+        animation: brilloDesliza 1.8s ease-in-out infinite;
+    }
+
+    .indicador-deslizar__flecha {
+        margin-top: -2px;
+        font-size: 25px;
+        line-height: 1;
+
+        animation: bajarFlecha 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes flotarDesliza {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -5px);
+    }
+}
+
+@keyframes brilloDesliza {
+    0%, 100% {
+        opacity: 0.45;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes bajarFlecha {
+    0%, 100% {
+        opacity: 0.45;
+        transform: translateY(-2px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(5px);
+    }
+}
+/* Mostrarlo únicamente en celulares */
+@media screen and (max-width: 640px) {
+
+    .indicador-deslizar {
+        display: flex !important;
+    }
+}
+.reproductor__invitacion {
+    margin-bottom: 8px;
+    color: #e8c46d;
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+@media screen and (min-width: 641px) {
+
+    /* Texto de la canción en computadora */
+    .reproductor__invitacion {
+        color: #e9c66b !important;
+        font-family: "Cinzel", serif !important;
+        font-size: 11px !important;
+        letter-spacing: 0.7px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(35, 12, 2, 0.8);
+    }
+
+    /* Elimina el nombre cortado detrás del pergamino */
+    .presentacion__nombre {
+        display: none !important;
+    }
+}
+/* OCULTAR INDICACIÓN DE MÚSICA SOLO EN COMPUTADORA */
+@media screen and (min-width: 641px) {
+
+    .reproductor__invitacion {
+        display: none !important;
+    }
+}
